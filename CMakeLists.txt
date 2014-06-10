@@ -84,25 +84,25 @@ files_to_enum("${VERTEX_SHADERS}" "VERTEX_SHADER_ENUM")
 files_to_enum("${FRAGMENT_SHADERS}" "FRAGMENT_SHADER_ENUM" )
 files_to_enum("${COMMON_SHADERS}" "COMMON_SHADER_ENUM")
 
-configure_file( ResourceEnums.h.in ResourceEnums.h )
-configure_file( ResourceEnums.cpp.in ResourceEnums.cpp )
+configure_file( cpp/ResourceEnums.h.in ResourceEnums.h )
+configure_file( cpp/ResourceEnums.cpp.in ResourceEnums.cpp )
 
 set(SOURCE_FILES 
-    Resources.cpp
-    Resources.h
+    cpp/Resources.cpp
+    cpp/Resources.h
     ${CMAKE_CURRENT_BINARY_DIR}/ResourceEnums.cpp 
     ${CMAKE_CURRENT_BINARY_DIR}/ResourceEnums.h
 )
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cpp)
 
 if (HAVE_BOOST)
     list(APPEND RESOURCE_LIBRARIES ${Boost_LIBRARIES})
 endif()
 
 if(WIN32)
-  configure_file( Resources.rc.in Resources.rc )
+    configure_file( cpp/Resources.rc.in Resources.rc )
     list(APPEND SOURCE_FILES ${CMAKE_CURRENT_BINARY_DIR}/Resources.rc)
     add_library(ExampleResources SHARED ${SOURCE_FILES})
 elseif(APPLE)
