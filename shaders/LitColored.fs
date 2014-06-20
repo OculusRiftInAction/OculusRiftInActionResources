@@ -13,16 +13,14 @@ out vec4 FragColor;
 
 vec4 DoLight()
 {
-   vec3 norm = normalize(vViewNormal);
+   vec3 normal = normalize(vViewNormal);
    vec3 light = Ambient.rgb;
+   float alpha = 1;
    for (int i = 0; i < int(LightCount); i++)
    {
-       vec3 ltp = (LightPosition[i].xyz - vViewPosition.xyz);
-       float  ldist = length(ltp);
-       ltp = normalize(ltp);
-       light += clamp(LightColor[i].rgb * vColor.rgb * (dot(norm, ltp) / ldist), 0.0,1.0);
+     vec3 pointToLight = normalize(LightPosition[i].xyz - vViewPosition.xyz);
+     light += LightColor[i].rgb * clamp(dot(normal, pointToLight), 0, 1);
    }
-   float alpha = vColor.a;
    if (ForceAlpha != 0.0) {
      alpha = ForceAlpha;
    }
@@ -31,5 +29,5 @@ vec4 DoLight()
 
 void main()
 {
-    FragColor = (DoLight() * vColor);
+    FragColor = DoLight() * vColor;
 }
