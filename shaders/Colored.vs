@@ -5,6 +5,7 @@ uniform mat4 ModelView = mat4(1);
 
 layout(location = 0) in vec3 Position;
 layout(location = 3) in vec4 Color;
+layout(location = 5) in mat4 InstanceTransform;
 
 out vec4 vColor;
 
