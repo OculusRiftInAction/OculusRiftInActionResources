@@ -56,5 +56,5 @@ void main()
         count = count + 2;
     }
     FragColor = vec4(color / count, 1);
-};
+}
 
