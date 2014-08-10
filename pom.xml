@@ -8,7 +8,7 @@
   </parent>
   
   <artifactId>oria-resources</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <packaging>jar</packaging>
 
   <scm>
@@ -32,7 +32,7 @@
       <resource>
         <directory>.</directory>
         <includes>
-          <include>images/sky/**</include>
+          <include>images/**</include>
           <include>shaders/**</include>
           <include>meshes/**</include>
           <include>fonts/**</include>

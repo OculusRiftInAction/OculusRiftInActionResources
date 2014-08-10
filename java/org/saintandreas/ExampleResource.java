@@ -24,7 +24,8 @@ public enum ExampleResource implements Resource {
   IMAGES_SKY_CITY_YNEG_PNG("images/sky/city/yneg.png"), 
   IMAGES_SKY_CITY_YPOS_PNG("images/sky/city/ypos.png"), 
   IMAGES_SKY_CITY_ZNEG_PNG("images/sky/city/zneg.png"), 
-  IMAGES_SKY_CITY_ZPOS_PNG("images/sky/city/zpos.png"), 
+  IMAGES_SKY_CITY_ZPOS_PNG("images/sky/city/zpos.png"),
+  IMAGES_FLOOR_PNG("images/floor.png"), 
   
   SHADERS_COLORED_FS("shaders/Colored.fs"), 
   SHADERS_COLORED_VS("shaders/Colored.vs"), 
