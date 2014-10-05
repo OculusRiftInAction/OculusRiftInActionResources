@@ -1,10 +1,10 @@
 #version 330
 
-uniform vec2 EyeToSourceUVScale = vec2(1);
-uniform vec2 EyeToSourceUVOffset = vec2(0);
+uniform vec2 EyeToSourceUVScale = vec2(1.0);
+uniform vec2 EyeToSourceUVOffset = vec2(0.0);
 
 uniform sampler2D Texture0;
-uniform bool samples = true;
+uniform bool samples = false;
 
 in vec4 oColor;
 in vec2 oTanEyeAngle;
@@ -21,13 +21,13 @@ vec2 tanEyeAngleToTexture(vec2 v) {
 void main()
 {
     vec3 color = textureLod(Texture0, oTexCoord0, 0.0).rgb;
-    float count = 1;
+    float count = 1.0;
     if (samples && any(greaterThan(delta, vec2(0.005)))) {
         vec2 texSample1 = tanEyeAngleToTexture(oTanEyeAngle * 0.998);
         color += textureLod(Texture0, texSample1, 0.0).rgb;
         vec2 texSample2 = tanEyeAngleToTexture(oTanEyeAngle * 1.002); 
         color += textureLod(Texture0, texSample2, 0.0).rgb;
-        count = count + 2;
+        count = count + 2.0;
     } 
     if (samples && any(greaterThan(delta, vec2(0.010)))) {
         vec2 texSample1 = oTanEyeAngle;
@@ -40,7 +40,7 @@ void main()
         texSample2.y *= 0.996; 
         texSample2 = tanEyeAngleToTexture(texSample2);
         color += textureLod(Texture0, texSample2, 0.0).rgb;
-        count = count + 2;
+        count = count + 2.0;
     } 
     if (samples && any(greaterThan(delta, vec2(0.015)))) {
         vec2 texSample1 = oTanEyeAngle;
@@ -53,7 +53,7 @@ void main()
         texSample2.y *= 0.994; 
         texSample2 = tanEyeAngleToTexture(texSample2);
         color += textureLod(Texture0, texSample2, 0.0).rgb;
-        count = count + 2;
+        count = count + 2.0;
     }
     FragColor = vec4(color / count, 1);
 }
