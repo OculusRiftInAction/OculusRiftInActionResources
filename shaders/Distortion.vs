@@ -6,7 +6,7 @@ uniform bool RightEye = true;
 uniform float DistortionWeight = 1.0;
 
 layout(location = 0) in vec2 Position;
-layout(location = 1) in vec2 TexCoord0;
+layout(location = 1) in vec2 TexCoord;
 layout(location = 3) in vec4 Color;
 
 out vec4 oColor;
@@ -22,8 +22,8 @@ vec2 tanEyeAngleToTexture(vec2 v) {
 }
 
 void main() {
-  oTanEyeAngle = TexCoord0;
-  oTexCoord0 = tanEyeAngleToTexture(TexCoord0);
+  oTanEyeAngle = TexCoord;
+  oTexCoord0 = tanEyeAngleToTexture(TexCoord);
 
   // Reconstruct the source coordinate based on the texture coordinate
   vec2 sourcePosition = oTexCoord0;

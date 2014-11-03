@@ -4,11 +4,11 @@ uniform mat4 Projection = mat4(1);
 uniform mat4 ModelView = mat4(1);
 
 layout(location = 0) in vec3 Position;
-layout(location = 1) in vec2 TexCoord0;
+layout(location = 1) in vec2 TexCoord;
 
 out vec2 vTexCoord;
 
 void main() {
-    vTexCoord = TexCoord0;
+    vTexCoord = TexCoord;
     gl_Position = Projection * ModelView * vec4(Position, 1);
 }
