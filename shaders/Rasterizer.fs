@@ -1,8 +1,10 @@
 #version 330
 
-in vec4 vColor;
+uniform sampler2D sampler;
+
 in vec2 vEdge;
 in vec2 vTexCoord;
+
 out vec4 FragColor;
 
 float edgeFactor() {
@@ -12,13 +14,12 @@ float edgeFactor() {
 }
 
 void main() {
-//  FragColor = vec4(vTexCoord, 0, 1);
-//  FragColor = vec4(1, 0, 1, 1);
     vec2 vfract = fract(vEdge);
-    if (any(lessThan(vfract, vec2(0.1)))) {
+    if (any(lessThan(vfract, vec2(0.15))) || any(greaterThan(vfract, vec2(0.85)))) {
       discard;
     }
     
-    FragColor.rgb = vec3(0.5);
+    //FragColor = vec4(vTexCoord, 0, 1);
+    FragColor = texture(sampler, vTexCoord);
     FragColor.a = 1.0;
 }
