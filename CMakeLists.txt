@@ -4,7 +4,7 @@ include (GenerateExportHeader)
 set(RESOURCE_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
 file(GLOB FONTS fonts/*.sdff)
-file(GLOB_RECURSE IMAGES images/*.png)
+file(GLOB_RECURSE IMAGES images/*.png images/*.jpg)
 file(GLOB MESHES meshes/*.ctm meshes/*.obj meshes/*.mtl)
 file(GLOB_RECURSE MISC misc/*)
 file(GLOB_RECURSE SHADERS shaders/*)
