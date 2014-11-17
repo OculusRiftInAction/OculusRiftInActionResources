@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4" >
+    <Window name="Games" type="DefaultWindow" >
+        <Property name="Area" value="{{0,0},{0,-1},{1,0},{1,-1}}" />
+        <Property name="Text" value="Games" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/Button" name="Go" >
+            <Property name="Area" value="{{0.55,0},{0.9,0},{0.67,0},{0.97,0}}" />
+            <Property name="Text" value="Observe" />
+            <Property name="Disabled" value="true" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Show" >
+            <Property name="Area" value="{{0.7,0},{0.9,0},{0.82,0},{0.97,0}}" />
+            <Property name="Text" value="Show" />
+            <Property name="TooltipText" value="Make the selected tab visible in the tab pane" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Del" >
+            <Property name="Area" value="{{0.85,0},{0.9,0},{0.97,0},{0.97,0}}" />
+            <Property name="Text" value="Del" />
+            <Property name="TooltipText" value="Delete the selected pane" />
+        </Window>
+        <Window type="TaharezLook/MultiColumnList" name="MultiColumnList" >
+            <Property name="Area" value="{{0,10},{0,10},{1,-10},{0.9,-10}}" />
+        </Window>
+    </Window>
+</GUILayout>

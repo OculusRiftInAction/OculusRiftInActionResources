@@ -29,7 +29,7 @@ using namespace boost::filesystem;
 #endif
 
 #if defined(RIFT_DEBUG)
-#define FILE_LOADING 1
+//#define FILE_LOADING 1
 #endif
 
 

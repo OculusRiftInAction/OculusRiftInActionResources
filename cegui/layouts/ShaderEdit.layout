@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="ShaderEdit" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/Button" name="ButtonRun" >
+            <Property name="Area" value="{{0,230},{0,685},{0,326},{0,717}}" />
+            <Property name="Text" value="Run" />
+        </Window>
+        <Window type="TaharezLook/Button" name="ButtonC0" >
+            <Property name="Area" value="{{0,10},{0,10},{0,170},{0,170}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="ButtonC1" >
+            <Property name="Area" value="{{0,10},{0,180},{0,170},{0,340}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="ButtonC2" >
+            <Property name="Area" value="{{0,10},{0,350},{0,170},{0,510}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="ButtonC3" >
+            <Property name="Area" value="{{0,10},{0,520},{0,170},{0,680}}" />
+        </Window>
+        <Window type="TaharezLook/MultiLineEditbox" name="ShaderText" >
+            <Property name="Area" value="{{0,230},{0,10},{0,1270},{0,680}}" />
+            <Property name="Font" value="DejaVuSans-10-NoScale" />
+            <Property name="Text" >
+</Property>
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="DefaultWindow" name="LoginWindow" >
+        <Property name="Area" value="{{0,0},{0,-1},{1,0},{1,-2}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Window type="TaharezLook/Editbox" name="Username" >
+            <Property name="Area" value="{{0,0},{0.25,0},{0,128},{0.25,32}}" />
+            <Property name="Text" value="Username" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Username_Label" >
+            <Property name="Area" value="{{-0.2,-5},{0.25,0},{-0.2,123},{0.25,32}}" />
+            <Property name="Text" value="Username:" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="TaharezLook/Label" name="Password_Label" >
+            <Property name="Area" value="{{-0.2,-5},{0.4,0},{-0.2,123},{0.4,32}}" />
+            <Property name="Text" value="Password:" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="RightAligned" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Password" >
+            <Property name="Area" value="{{0,0},{0.4,0},{0,128},{0.4,32}}" />
+            <Property name="Text" value="Password" />
+            <Property name="MaskText" value="true" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Login" >
+            <Property name="Area" value="{{0,0},{0,30},{0,96},{0,62}}" />
+            <Property name="Text" value="Login" />
+            <Property name="VerticalAlignment" value="Centre" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+    </Window>
+</GUILayout>

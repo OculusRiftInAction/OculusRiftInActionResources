@@ -9,5 +9,6 @@ out vec4 vFragColor;
 void main() {
     vec4 c = texture(sampler, vTexCoord);
     c.a = min(Alpha, c.a);
-    vFragColor = c; //vec4(fract(vTexCoord), log(vTexCoord.x), 1.0);
+    vFragColor = c; 
+    //vFragColor = vec4(fract(vTexCoord), log(vTexCoord.x), 1.0);
 }

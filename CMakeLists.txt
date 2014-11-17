@@ -8,6 +8,7 @@ file(GLOB_RECURSE IMAGES images/*.png images/*.jpg)
 file(GLOB MESHES meshes/*.ctm meshes/*.obj meshes/*.mtl)
 file(GLOB_RECURSE MISC misc/*)
 file(GLOB_RECURSE SHADERS shaders/*)
+file(GLOB_RECURSE SHADERTOYS shadertoy/*)
 
 
 list(SORT MESHES )
@@ -15,6 +16,7 @@ list(SORT MISC )
 list(SORT FONTS )
 list(SORT IMAGES )
 list(SORT SHADERS)
+list(SORT SHADERTOYS)
 
 source_group("Common Shaders" FILES ${SHADERS})
 
@@ -24,6 +26,7 @@ set(ALL_RESOURCES
     ${MESHES}
     ${MISC}
     ${SHADERS}
+    ${SHADERTOYS}
 )
 
 set(ALL_RESOURCES
@@ -44,7 +47,7 @@ function(files_to_enum SOURCE_FILES RESULT_HEADER)
         set(res ${relative})
         string(TOUPPER ${res} res)
         string(REGEX REPLACE "\\.\\./" "" res "${res}" )
-        string(REGEX REPLACE "[^A-Z1-9]" "_" res "${res}" )
+        string(REGEX REPLACE "[^A-Z0-9]" "_" res "${res}" )
         set(HEADER_BUFFER "${HEADER_BUFFER}\t${res},\n")
         set(MAP_BUFFER "${MAP_BUFFER}  std::make_pair(${res}, \"${relative}\"), \n")
 
