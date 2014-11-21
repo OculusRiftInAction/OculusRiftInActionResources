@@ -1,3 +1,4 @@
+// https://www.shadertoy.com/view/4djGWR
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
@@ -26,9 +27,15 @@
 #endif
 
 
-float hash1( vec2  n ) { return fract(sin(dot(n,vec2(1.0,113.0)))*43758.5453123); }
-float hash1( vec3  n ) { return fract(sin(dot(n,vec3(1.0,113.0,257.0)))*43758.5453123); }
-vec2  hash2( float n ) { return fract(sin(vec2(n,n+1.0))*vec2(43758.5453123,22578.1459123)); }
+float hash1( vec2  n ) { 
+  return fract(sin(dot(n,vec2(1.0,113.0)))*43758.5453123); 
+}
+float hash1( vec3  n ) { 
+  return fract(sin(dot(n,vec3(1.0,113.0,257.0)))*43758.5453123); 
+}
+vec2  hash2( float n ) { 
+  return fract(sin(vec2(n,n+1.0))*vec2(43758.5453123,22578.1459123)); 
+}
 
 
 // voxel map

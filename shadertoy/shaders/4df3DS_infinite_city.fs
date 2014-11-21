@@ -1,16 +1,18 @@
+// https://www.shadertoy.com/view/4df3DS
 // Ininite City
 // Ben Weston - 2013
-// License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+// License Creative Commons 
+// Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
 // slightly shaky street-level view!
-//#define FIRST_PERSON
 
 vec2 Rand(vec2 pos) {
   return texture2D(iChannel0, (pos + .5) / 256.0, -100.0).xz;
 }
 
 vec3 VoronoiPoint(vec2 pos, vec2 delta) {
-  const float randScale = .8; // reduce this to remove axis-aligned hard edged errors
+  // reduce this to remove axis-aligned hard edged errors
+  const float randScale = .8;
 
   vec2 p = floor(pos) + delta;
   vec2 r = (Rand(p) - .5) * randScale;
@@ -19,19 +21,22 @@ vec3 VoronoiPoint(vec2 pos, vec2 delta) {
   // various length calculations for different patterns
   //float l = length(c-pos);
   //float l = length(vec3(c-pos,.1));
-  float l = abs(c.x - pos.x) + abs(c.y - pos.y); // more interesting shapes
+  // more interesting shapes
+  float l = abs(c.x - pos.x) + abs(c.y - pos.y);
 
   return vec3(c, l);
 }
 
 // For building height I want to know which voronoi point I used
-// For side-walls I want difference between distance of closest 2 points
+// For side-walls I want difference between distance of closest 
+// 2 points
 vec3 Voronoi(vec2 pos) {
   // find closest & second closest points
   vec3 delta = vec3(-1, 0, 1);
 
   // sample surrounding points on the distorted grid
-  // could get 2 samples for the price of one using a rotated (17,37) grid...
+  // could get 2 samples for the price of one using a rotated 
+  // (17,37) grid...
   vec3 point[9];
   point[0] = VoronoiPoint(pos, delta.xx);
   point[1] = VoronoiPoint(pos, delta.yx);
@@ -44,7 +49,12 @@ vec3 Voronoi(vec2 pos) {
   point[8] = VoronoiPoint(pos, delta.zz);
 
   vec3 closest;
-  closest.z = min(min(min(min(point[0].z, point[1].z), min(point[2].z, point[3].z)), min(min(point[4].z, point[5].z), min(point[6].z, point[7].z))), point[8].z);
+  closest.z = min(
+    min(
+      min(min(point[0].z, point[1].z), min(point[2].z, point[3].z)), 
+      min(min(point[4].z, point[5].z), min(point[6].z, point[7].z))
+    ), 
+    point[8].z);
 
   // find second closest
   // maybe there's a better way to do this
@@ -57,45 +67,36 @@ vec3 Voronoi(vec2 pos) {
   }
 
   float t;
-  t = min(min(min(point[0].z, point[1].z), min(point[2].z, point[3].z)), min(min(point[4].z, point[5].z), min(point[6].z, point[7].z)));
-
-  /*slower:
-   float t2 = 9.0;
-   vec3 closest = point[8];
-   for ( int i=0; i < 8; i++ )
-   {
-   if ( point[i].z < closest.z )
-   {
-   t2 = closest.z;
-   closest = point[i];
-   }
-   else if ( point[i].z < t2 )
-   {
-   t2 = point[i].z;
-   }
-   }*/
-
+  t = min(
+    min(min(point[0].z, point[1].z), min(point[2].z, point[3].z)), 
+    min(min(point[4].z, point[5].z), min(point[6].z, point[7].z))
+  );
   return vec3(closest.xy, t - closest.z);
 }
 
 float DistanceField(vec3 pos, float dist) {
   vec3 v = Voronoi(pos.xz);
-  vec2 r = Rand(v.xy * 4.0); // per-building seed
+  // per-building seed
+  vec2 r = Rand(v.xy * 4.0);
 
-  float f = (.2 + .3 * r.y - v.z) * .5; //.7071; // correct for max gradient of voronoi x+z distance calc
+  // correct for max gradient of voronoi x+z distance calc
+  float f = (.2 + .3 * r.y - v.z) * .5; //.7071; 
 
   // random height
-  float h = r.x; // v.xy is position of cell centre, use it as random seed
+  // v.xy is position of cell centre, use it as random seed
+  float h = r.x;
   h = mix(.2, 2.0, pow(h, 2.0));
   h = pos.y - h;
 
-  // we get precision problems caused by the discontinuity in height
-  // so clamp it near to the surface and then apply a plane at max height 
+  // we get precision problems caused by the discontinuity in 
+  // height so clamp it near to the surface and then apply a 
+  // plane at max height 
   h = max(min(h, .008 * dist), pos.y - 2.0);
 
-//  f = max( f, h );
+  //  f = max( f, h );
   if (f > 0.0 && h > 0.0)
-    f = sqrt(f * f + h * h); // better distance computation, to reduce errors
+    // better distance computation, to reduce errors
+    f = sqrt(f * f + h * h); 
   else
     f = max(f, h);
 
@@ -137,40 +138,21 @@ vec3 GetNormal(vec3 pos) {
 void main(void) {
   /*  float f = Voronoi(gl_FragCoord.xy/40.0).z;
    gl_FragColor = vec4( vec3(f), 1.0 );*/
-
   vec2 mouse = iMouse.xy / iResolution.xy;
 
   float h;
-#ifdef FIRST_PERSON
-  vec2 rot = vec2(-.2,.0)+vec2(6.28,-1.5)*mouse;
-
-  //  vec3 rayStart = vec3(.1,.03,.1);//vec3(0,10,0) + vec3(1,0,1)*iGlobalTime + vec3(0,-8,0)*mouse.y;
-  //  rayStart += -10.0*vec3(sin(rot.x),0,cos(rot.x));
-
-  vec3 rayStart = vec3(0,.03,0) + iGlobalTime*vec3(-.02,0,.02);
-  // find closest road to the right
-  h = 1.0;
-  for ( int i=0; i < 20; i++ )
-  {
-    if ( h < .01 )
-    break;
-    h = Voronoi( rayStart.xz ).z*.3;
-    rayStart.xz += h;
-  }
-
-  float zoom = .7;
-#else
   vec2 rot = vec2(-.2, .28) + vec2(1.6, .5) * mouse;
 
   vec3 rayStart = vec3(0, 5, 0) + vec3(1, 0, 1) * iGlobalTime + vec3(0, 6, 0) * mouse.y;
   rayStart += -10.0 * vec3(sin(rot.x), 0, cos(rot.x));
 
   float zoom = 1.0;
-#endif
 
-  vec3 rayDir = normalize(iDir); // normalize(vec3(gl_FragCoord.xy - iResolution.xy * .5, iResolution.x * zoom));
-  rayDir.yz = rayDir.yz * cos(rot.y) + rayDir.zy * sin(rot.y) * vec2(-1, 1);
-  rayDir.xz = rayDir.xz * cos(rot.x) + rayDir.zx * sin(rot.x) * vec2(1, -1);
+  vec3 rayDir = normalize(iDir); 
+  // vec3 rayDir = normalize(
+  //    vec3(gl_FragCoord.xy - iResolution.xy * .5, iResolution.x * zoom));
+  // rayDir.yz = rayDir.yz * cos(rot.y) + rayDir.zy * sin(rot.y) * vec2(-1, 1);
+  // rayDir.xz = rayDir.xz * cos(rot.x) + rayDir.zx * sin(rot.x) * vec2(1, -1);
 
   // trace
   float t = 0.0;
@@ -189,7 +171,10 @@ void main(void) {
   vec3 v = Voronoi(pos.xz);
 
   vec2 r = Rand(v.xy).xy;
-  vec4 albedo = mix(mix(vec4(.4, .2, .0, 0), vec4(1, 1, 1, 0), r.x), mix(vec4(0, .2, .6, 1), vec4(0, 0, 0, 1), r.x), r.y);
+  vec4 albedo = mix(
+      mix(vec4(.4, .2, .0, 0), vec4(1, 1, 1, 0), r.x), 
+      mix(vec4(0, .2, .6, 1), vec4(0, 0, 0, 1), r.x), 
+    r.y);
 
   // floors
   if (fract(pos.y * 8.0) < .4)
@@ -228,7 +213,8 @@ void main(void) {
   // fog
   //result = mix( vec3(.85,1.0,1.2), result, exp(-t*.02) );
   //More realistic fog
-  result *= pow(vec3(.7, .57, .3), vec3(t * .02)); // absorb more blue on distant things
+  // absorb more blue on distant things
+  result *= pow(vec3(.7, .57, .3), vec3(t * .02)); 
   result += vec3(.7, .9, 1.2) * (1.0 - exp(-t * .02));
 
   gl_FragColor = vec4(result, 1);

@@ -5,26 +5,65 @@
         <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
         <Property name="MaxSize" value="{{1,0},{1,0}}" />
         <Window type="TaharezLook/Button" name="ButtonRun" >
-            <Property name="Area" value="{{0,230},{0,685},{0,326},{0,717}}" />
+            <Property name="Area" value="{{0,235},{0,675},{0,331},{0,707}}" />
             <Property name="Text" value="Run" />
         </Window>
         <Window type="TaharezLook/Button" name="ButtonC0" >
-            <Property name="Area" value="{{0,10},{0,10},{0,170},{0,170}}" />
+            <Property name="Area" value="{{0,30},{0,20},{0,190},{0,180}}" />
         </Window>
         <Window type="TaharezLook/Button" name="ButtonC1" >
-            <Property name="Area" value="{{0,10},{0,180},{0,170},{0,340}}" />
+            <Property name="Area" value="{{0,30},{0,195},{0,190},{0,355}}" />
         </Window>
         <Window type="TaharezLook/Button" name="ButtonC2" >
-            <Property name="Area" value="{{0,10},{0,350},{0,170},{0,510}}" />
+            <Property name="Area" value="{{0,30},{0,370},{0,190},{0,530}}" />
         </Window>
         <Window type="TaharezLook/Button" name="ButtonC3" >
-            <Property name="Area" value="{{0,10},{0,520},{0,170},{0,680}}" />
+            <Property name="Area" value="{{0,35},{0,545},{0,195},{0,705}}" />
         </Window>
         <Window type="TaharezLook/MultiLineEditbox" name="ShaderText" >
-            <Property name="Area" value="{{0,230},{0,10},{0,1270},{0,680}}" />
+            <Property name="Area" value="{{0,230},{0,20},{0,1070},{0,620}}" />
             <Property name="Font" value="DejaVuSans-10-NoScale" />
             <Property name="Text" >
 </Property>
+        </Window>
+        <Window type="TaharezLook/Label" name="TextFps" >
+            <Property name="Area" value="{{0,1160},{0,20},{0,1258},{0,52}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="ButtonLoad" >
+            <Property name="Area" value="{{0,975},{0,675},{0,1071},{0,707}}" />
+            <Property name="Text" value="Load" />
+        </Window>
+        <Window type="TaharezLook/Button" name="ButtonSave" >
+            <Property name="Area" value="{{0,865},{0,675},{0,961},{0,707}}" />
+            <Property name="Text" value="Save" />
+        </Window>
+        <Window type="TaharezLook/Label" name="LabelRez" >
+            <Property name="Area" value="{{0,1085},{0,70},{0,1140},{0,102}}" />
+            <Property name="Text" value="Rez" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="LabelFps" >
+            <Property name="Area" value="{{0,1085},{0,20},{0,1140},{0,52}}" />
+            <Property name="Text" value="FPS" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="LabelMpx" >
+            <Property name="Area" value="{{0,1085},{0,120},{0,1140},{0,152}}" />
+            <Property name="Text" value="Mpx" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="TextMpx" >
+            <Property name="Area" value="{{0,1160},{0,120},{0,1258},{0,152}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Label" name="TextRez" >
+            <Property name="Area" value="{{0,1160},{0,70},{0,1258},{0,102}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="Status" >
+            <Property name="Area" value="{{0,230},{0,630},{0,1070},{0,662}}" />
+            <Property name="Disabled" value="true" />
         </Window>
     </Window>
 </GUILayout>

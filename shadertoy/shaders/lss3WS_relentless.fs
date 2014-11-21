@@ -1,3 +1,21 @@
+// https://www.shadertoy.com/view/lss3WS
+
+// srtuss, 2013
+
+// collecting some design ideas for a new game project.
+// no raymarching is used.
+
+// if i could add a custom soundtrack, it'd use this one (essential for desired sensation)
+// http://www.youtube.com/watch?v=1uFAu65tZpo
+
+
+//#define GREEN_VERSION
+
+// ** improved camera shaking
+// ** cleaned up code
+// ** added stuff to the gates
+
+
 // srtuss, 2013
 float time = iGlobalTime;
 
