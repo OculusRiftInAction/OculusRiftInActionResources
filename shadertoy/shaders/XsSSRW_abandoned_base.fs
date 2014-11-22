@@ -324,10 +324,10 @@ void main( void ) {
     vec2 p = -1.0 + 2.0*q;
     p.x *= iResolution.x / iResolution.y;
         
-    if (q.y < .12 || q.y >= .88) {
-        gl_FragColor=vec4(vec4(0.0));
-        return;
-    }
+//    if (q.y < .12 || q.y >= .88) {
+//        gl_FragColor=vec4(vec4(0.0));
+//        return;
+//    }
     
     // camera
     float o = 0.2*noise(vec2(time,0.));

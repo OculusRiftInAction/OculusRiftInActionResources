@@ -5,7 +5,7 @@
         <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
         <Property name="MaxSize" value="{{1,0},{1,0}}" />
         <Window type="TaharezLook/Label" name="LabelTextures" >
-            <Property name="Area" value="{{0,20},{0,30},{0,148},{0,62}}" />
+            <Property name="Area" value="{{0,15},{0,30},{0,165},{0,62}}" />
             <Property name="Text" value="Textures" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
         </Window>
@@ -13,56 +13,71 @@
             <Property name="Area" value="{{0,170},{0,30},{0,266},{0,126}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex01" >
-            <Property name="Area" value="{{0,280},{0,30},{0,376},{0,126}}" />
+            <Property name="Area" value="{{0,305},{0,30},{0,401},{0,126}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex02" >
-            <Property name="Area" value="{{0,390},{0,30},{0,486},{0,126}}" />
+            <Property name="Area" value="{{0,445},{0,30},{0,541},{0,126}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex03" >
-            <Property name="Area" value="{{0,500},{0,30},{0,596},{0,126}}" />
+            <Property name="Area" value="{{0,585},{0,30},{0,681},{0,126}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex04" >
-            <Property name="Area" value="{{0,610},{0,30},{0,706},{0,126}}" />
+            <Property name="Area" value="{{0,725},{0,30},{0,821},{0,126}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex05" >
-            <Property name="Area" value="{{0,720},{0,30},{0,816},{0,126}}" />
+            <Property name="Area" value="{{0,860},{0,30},{0,956},{0,126}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex06" >
-            <Property name="Area" value="{{0,830},{0,30},{0,926},{0,126}}" />
+            <Property name="Area" value="{{0,1000},{0,30},{0,1096},{0,126}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex07" >
-            <Property name="Area" value="{{0,940},{0,30},{0,1036},{0,126}}" />
+            <Property name="Area" value="{{0,1140},{0,30},{0,1236},{0,126}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex08" >
-            <Property name="Area" value="{{0,1050},{0,30},{0,1146},{0,126}}" />
+            <Property name="Area" value="{{0,1000},{0,145},{0,1096},{0,241}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex09" >
-            <Property name="Area" value="{{0,1160},{0,30},{0,1256},{0,126}}" />
+            <Property name="Area" value="{{0,1140},{0,145},{0,1236},{0,241}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex10" >
             <Property name="Area" value="{{0,170},{0,145},{0,266},{0,241}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex11" >
-            <Property name="Area" value="{{0,280},{0,145},{0,376},{0,241}}" />
+            <Property name="Area" value="{{0,305},{0,145},{0,401},{0,241}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex12" >
-            <Property name="Area" value="{{0,390},{0,145},{0,486},{0,241}}" />
+            <Property name="Area" value="{{0,445},{0,145},{0,541},{0,241}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex14" >
-            <Property name="Area" value="{{0,500},{0,145},{0,596},{0,241}}" />
+            <Property name="Area" value="{{0,585},{0,145},{0,681},{0,241}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex15" >
-            <Property name="Area" value="{{0,610},{0,145},{0,706},{0,241}}" />
+            <Property name="Area" value="{{0,725},{0,145},{0,821},{0,241}}" />
         </Window>
         <Window type="TaharezLook/Button" name="Tex16" >
-            <Property name="Area" value="{{0,720},{0,145},{0,816},{0,241}}" />
+            <Property name="Area" value="{{0,860},{0,145},{0,956},{0,241}}" />
         </Window>
         <Window type="TaharezLook/Label" name="LabelCubemaps" >
-            <Property name="Area" value="{{0,30},{0,280},{0,158},{0,312}}" />
+            <Property name="Area" value="{{0,15},{0,280},{0,165},{0,312}}" />
             <Property name="Text" value="Cubemaps" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
         </Window>
-        <Window type="TaharezLook/Button" name="Tex002" >
+        <Window type="TaharezLook/Button" name="Cube03" >
+            <Property name="Area" value="{{0,585},{0,280},{0,681},{0,376}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Cube04" >
+            <Property name="Area" value="{{0,725},{0,280},{0,821},{0,376}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Cube05" >
+            <Property name="Area" value="{{0,860},{0,280},{0,956},{0,376}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Cube01" >
+            <Property name="Area" value="{{0,305},{0,280},{0,401},{0,376}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Cube02" >
+            <Property name="Area" value="{{0,445},{0,280},{0,541},{0,376}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="Cube00" >
             <Property name="Area" value="{{0,170},{0,280},{0,266},{0,376}}" />
         </Window>
     </Window>

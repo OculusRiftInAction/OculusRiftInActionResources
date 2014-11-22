@@ -139,17 +139,9 @@ void main(void) {
   vec3 light1 = normalize(vec3(-0.8, 0.4, -0.3));
 
   // camera position
-  vec3 ro = camPath(time);
-  vec3 ta = camPath(time + 3.0);
-  ro.y = terrain3(ro.xz) + 11.0;
-  ta.y = ro.y - 20.0;
-  float cr = 0.2 * cos(0.1 * time);
-
+  vec3 ro = camPath(time) + iPos;
+  ro.y = max(terrain3(ro.xz) + 11.0, 150.0);
   // camera ray    
-  vec3 cw = normalize(ta - ro);
-  vec3 cp = vec3(sin(cr), cos(cr), 0.0);
-  vec3 cu = normalize(cross(cw, cp));
-  vec3 cv = normalize(cross(cu, cw));
   vec3 rd = normalize(iDir); // normalize( s.x*cu + s.y*cv + 2.0*cw );
 
   // bounding plane

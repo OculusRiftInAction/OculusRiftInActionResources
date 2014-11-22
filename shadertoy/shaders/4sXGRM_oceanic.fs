@@ -241,6 +241,7 @@ void main(void)
   vec3 cv = normalize(cross(cu,cw));
   // vec3 rd = normalize( s.x*cu + s.y*cv + 1.6*cw );
   vec3 rd = normalize( iDir );
+  rd.z *= -1.0;
 
   float sundot = clamp(dot(rd,light),0.0,1.0);
 

@@ -146,9 +146,7 @@ void main(void)
 {   
     time = floor(iGlobalTime * 16.0) / 16.0;
     // pixel position
-    vec2 q = gl_FragCoord.xy / iResolution.xy;
-    vec2 p = -1.0+2.0*q;
-    p.x *= -iResolution.x/iResolution.y;
+    vec2 p = iDir.xy;
     p += vec2(triangle(p.y * rand(time) * 4.0) * rand(time * 1.9) * 0.015,
             triangle(p.x * rand(time * 3.4) * 4.0) * rand(time * 2.1) * 0.015);
     p += vec2(rand(p.x * 3.1 + p.y * 8.7) * 0.01,
@@ -165,17 +163,12 @@ void main(void)
     m.y += 0.75;
 
     // camera position
-    float dist = 50.0;
-    vec3 ta = vec3(0,0,0);
-    vec3 ro = vec3(cos(m.x) * cos(m.y) * dist, sin(m.x) * cos(m.y) * dist, sin(m.y) * dist);
-    vec3 light = vec3(cos(m.x - 2.27) * 50.0, sin(m.x - 2.27) * 50.0, -20.0);
-    
+    vec3 ro = vec3(0.0, 36, 6)
+        iPos.xzy * 10.0;
     // camera direction
-    vec3 cw = normalize( ta-ro );
-    vec3 cp = vec3( 0.0, 0.0, 1.0 );
-    vec3 cu = normalize( cross(cw,cp) );
-    vec3 cv = normalize( cross(cu,cw) );
-    vec3 rd = normalize( p.x*cu + p.y*cv + 2.5*cw );
+    vec3 rd = normalize( iDir.xzy );
+
+    vec3 light = vec3(cos(m.x - 2.27) * 50.0, sin(m.x - 2.27) * 50.0, -20.0);
 
     // calculate color
     vec4 col = getPixel(p, ro, rd, normalize(light));

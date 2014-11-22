@@ -1,7 +1,8 @@
 void main(void)
 {
   vec2 uv = gl_FragCoord.xy / iResolution.xy;
-  vec3 color = iDir;
-  gl_FragColor = vec4(color,1.0);
+  vec4 color = vec4(iDir, 1.0);
+//  vec4 color = texture(iChannel0, iDir);
+  gl_FragColor = color; 
 }
 

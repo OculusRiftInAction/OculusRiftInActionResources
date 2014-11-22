@@ -3,5 +3,6 @@
     <Items>
         <Item path="layouts/ShaderChannels.layout" type="file" />
         <Item path="layouts/ShaderEdit.layout" type="file" />
+        <Item path="layouts/ShaderLoad.layout" type="file" />
     </Items>
 </Project>

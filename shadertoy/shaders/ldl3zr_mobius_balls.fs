@@ -13,16 +13,16 @@ vec2 r(vec2 v,float y)
 vec3 textureAVG(samplerCube tex, vec3 tc) {
     const float diff0 = 0.35;
     const float diff1 = 0.12;
-    vec3 s0 = textureCube(tex,tc).xyz;
-    vec3 s1 = textureCube(tex,tc+vec3(diff0)).xyz;
-    vec3 s2 = textureCube(tex,tc+vec3(-diff0)).xyz;
-    vec3 s3 = textureCube(tex,tc+vec3(-diff0,diff0,-diff0)).xyz;
-    vec3 s4 = textureCube(tex,tc+vec3(diff0,-diff0,diff0)).xyz;
+    vec3 s0 = texture(tex,tc).xyz;
+    vec3 s1 = texture(tex,tc+vec3(diff0)).xyz;
+    vec3 s2 = texture(tex,tc+vec3(-diff0)).xyz;
+    vec3 s3 = texture(tex,tc+vec3(-diff0,diff0,-diff0)).xyz;
+    vec3 s4 = texture(tex,tc+vec3(diff0,-diff0,diff0)).xyz;
     
-    vec3 s5 = textureCube(tex,tc+vec3(diff1)).xyz;
-    vec3 s6 = textureCube(tex,tc+vec3(-diff1)).xyz;
-    vec3 s7 = textureCube(tex,tc+vec3(-diff1,diff1,-diff1)).xyz;
-    vec3 s8 = textureCube(tex,tc+vec3(diff1,-diff1,diff1)).xyz;
+    vec3 s5 = texture(tex,tc+vec3(diff1)).xyz;
+    vec3 s6 = texture(tex,tc+vec3(-diff1)).xyz;
+    vec3 s7 = texture(tex,tc+vec3(-diff1,diff1,-diff1)).xyz;
+    vec3 s8 = texture(tex,tc+vec3(diff1,-diff1,diff1)).xyz;
     
     return (s0 + s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8) * 0.111111111;
 }
@@ -145,7 +145,7 @@ vec3 f( vec3 p )
 
 vec4 getcolor(vec3 hit, vec3 ray, vec3 normal, float t, vec3 d) 
 {
-    vec4 background = vec4(textureCube(iChannel0, ray).xyz, 0.0);
+    vec4 background = vec4(texture(iChannel0, ray).xyz, 0.0);
     if( t < 26.0 )
     {
         // material
