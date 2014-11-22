@@ -175,13 +175,8 @@ void main(void)
     float r2 = p.x*p.x*0.32 + p.y*p.y;
     p *= 0.5 + 0.5*(7.0-sqrt(37.5-11.5*r2))/(r2+1.0);
     float an = 0.04*iGlobalTime - 7.0*m.x;
-    vec3 ro = 3.1*normalize(vec3(sin(an),0.1+0.6-0.4*m.y, cos(an)));
-    vec3 ta = vec3( 0.0, 0.75, 0.0 );
-    float rl = 0.5*sin(0.35*an);
-    vec3 ww = normalize( ta - ro );
-    vec3 uu = normalize( cross(ww,vec3(sin(rl),cos(rl),0.0) ) );
-    vec3 vv = normalize( cross(uu,ww));
-    vec3 rd = normalize( p.x*uu + p.y*vv + 1.5*ww );
+    vec3 ro = 3.1*normalize(vec3(sin(an),0.1+0.6-0.4*m.y, cos(an))) + iPos * 3.0;
+    vec3 rd = normalize( iDir );
 
     // render
     vec3 col = vec3(0.0);
