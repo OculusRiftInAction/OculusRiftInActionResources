@@ -168,6 +168,8 @@ void main(void) {
   // ray origin
   vec3 ro = 0.7 * vec3(cos(0.2 * time), 0.0, sin(0.2 * time));
   ro.y = cos(0.6 * time) * 0.3 + 0.65;
+  ro.z += 1.5;
+  ro += iPos / 3.0;
   // camera shake intensity
   float shake = clamp(3.0 * (1.0 - length(ro.yz)), 0.3, 1.0);
   float st = mod(time, 10.0) * 143.0;
@@ -254,13 +256,10 @@ void main(void) {
   }
 
   inten *= 0.4 + (sin(time) * 0.5 + 0.5) * 0.6;
-
-  // find a color for the computed intensity
-#ifdef GREEN_VERSION
-  vec3 col = pow(vec3(inten), vec3(2.0, 0.15, 9.0));
-#else
-  vec3 col = pow(vec3(inten), 1.5 * vec3(0.15, 2.0, 9.0));
-#endif
-
+  vec3 cr = vec3(0.15, 2.0, 9.0);
+  vec3 cg = vec3(2.0, 0.15, 9.0);
+  vec3 cb = vec3(9.0, 2.0, 0.15);
+  vec3 ct = vec3(9.0, 0.25, 0.3);
+  vec3 col = pow(vec3(inten), 1.5 * ct);
   gl_FragColor = vec4(col, 1.0);
 }

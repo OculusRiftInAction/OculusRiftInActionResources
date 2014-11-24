@@ -1,4 +1,6 @@
 // https://www.shadertoy.com/view/4df3DS
+// @channel0 tex16
+// @channel1 tex06
 // Ininite City
 // Ben Weston - 2013
 // License Creative Commons 

@@ -28,9 +28,9 @@ using namespace boost::posix_time;
 using namespace boost::filesystem;
 #endif
 
-#if defined(RIFT_DEBUG)
-#define FILE_LOADING 1
-#endif
+//#if defined(RIFT_DEBUG)
+//#define FILE_LOADING 1
+//#endif
 
 
 const std::string & Resources::getResourcePath(Resource resource) {

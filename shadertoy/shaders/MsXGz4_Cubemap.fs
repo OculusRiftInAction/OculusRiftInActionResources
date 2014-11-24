@@ -1,4 +1,10 @@
 // https://www.shadertoy.com/view/MsXGz4
+
+// @channel0 cube00
+// @channel1 cube01
+// @channel2 tex01
+// @channel3 tex06
+
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
@@ -17,7 +23,7 @@ vec2 map( vec3 p )
 
     if( d2.x<d1.x) d1=d2;
 
-    p = vec3( length(p.xz)-2.0, p.y, mod(iGlobalTime + 6.0*atan(p.z,p.x)/3.14,1.0)-0.5 );
+    p = vec3( length(p.xz)-2.0, p.y, mod(iGlobalTime / 10.0 + 6.0*atan(p.z,p.x)/3.14,1.0)-0.5 );
     //p -= vec3( 1.5, 0.0, 0.0 );
     vec2 d3 = vec2( 0.5*(length(p) - 0.2), 3.0 );
     if( d3.x<d1.x) d1=d3;
@@ -91,16 +97,10 @@ void main(void)
     vec2 p = -1.0 + 2.0 * q;
     p.x *= iResolution.x/iResolution.y;
     vec2 mo = iMouse.xy/iResolution.xy;
-    
     // camera
-    // float an1 = 0.2*iGlobalTime-6.2831*mo.x;
-    // float an2 = clamp( 0.8 + 0.6*sin(2.2+iGlobalTime*0.11)  + 1.0*mo.y, 0.3, 1.35 );
-    // vec3 ro = 2.5*normalize(vec3(sin(an2)*cos(an1), cos(an2)-0.5, sin(an2)*sin(an1)));
-    // vec3 ww = normalize(vec3(0.0,0.0,0.0) - ro);
-    // vec3 uu = normalize(cross( vec3(0.0,1.0,0.0), ww ));
-    // vec3 vv = normalize(cross(ww,uu));
-    // vec3 rd = normalize( p.x*uu + p.y*vv + 1.4*ww );
-    vec3 ro = vec3(0.0, -0.3, 2.0) + iPos;
+    vec3 ro1 = vec3(0.0, 0.19, 2.1) + iPos / 20.0;
+    vec3 ro2 = vec3(0.0, 1.5, 5.0) + iPos * 10.0;
+    vec3 ro = mix(ro1, ro2, cos(iGlobalTime / 10.0) / 2.0 + 0.5);
     vec3 rd = normalize( iDir );
 
     // raymarch
