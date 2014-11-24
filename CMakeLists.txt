@@ -1,6 +1,7 @@
 project(ExampleResources)
 include (GenerateExportHeader)
 
+
 set(RESOURCE_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
 file(GLOB FONTS fonts/*.sdff)

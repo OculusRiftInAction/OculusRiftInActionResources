@@ -32,6 +32,21 @@ using namespace boost::filesystem;
 //#define FILE_LOADING 1
 //#endif
 
+const std::string & Resources::getResourceMnemonic(Resource resource) {
+  typedef std::unordered_map<Resource, std::string> Map;
+  static bool init = false;
+  static Map resources;
+  
+  if (!init) {
+    init = true;
+    for (int i = 0; RESOURCE_MAP_VALUES[i].first != NO_RESOURCE; ++i) {
+      Resource res = RESOURCE_MAP_VALUES[i].first;
+      std::string path = RESOURCE_MAP_VALUES[i].second;
+      resources[res] = path;
+    }
+  }
+  return resources[resource];
+}
 
 const std::string & Resources::getResourcePath(Resource resource) {
   typedef std::unordered_map<Resource, std::string> Map;

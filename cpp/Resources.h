@@ -22,6 +22,7 @@ public:
   static Resources_EXPORT const Resource VERTEX_SHADERS[];
   static Resources_EXPORT const Resource FRAGMENT_SHADERS[];
   static Resources_EXPORT const Resource LIB_SHADERS[];
+  static Resources_EXPORT const std::string & getResourceMnemonic(Resource resource);
   static Resources_EXPORT const std::string & getResourcePath(Resource resource);
   static Resources_EXPORT time_t getResourceModified(Resource resource);
   static Resources_EXPORT size_t getResourceSize(Resource resource);
