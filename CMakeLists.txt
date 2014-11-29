@@ -4,7 +4,7 @@ include (GenerateExportHeader)
 
 set(RESOURCE_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
 
-file(GLOB FONTS fonts/*.sdff)
+file(GLOB FONTS fonts/*)
 file(GLOB_RECURSE IMAGES images/*.png images/*.jpg)
 file(GLOB MESHES meshes/*.ctm meshes/*.obj meshes/*.mtl)
 file(GLOB_RECURSE MISC misc/*)
@@ -131,3 +131,8 @@ generate_export_header(
 
 target_link_libraries(ExampleResources ${RESOURCE_LIBRARIES})
 
+
+if (HAVE_QT)
+set(CMAKE_AUTORCC 1)
+ add_library(ExampleResourcesQt STATIC Resource.qrc)
+endif()
