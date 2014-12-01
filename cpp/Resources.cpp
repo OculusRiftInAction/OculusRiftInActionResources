@@ -68,7 +68,7 @@ const std::string & Resources::getResourcePath(Resource resource) {
       path = RESOURCE_ROOT + "/" + path;
 #elif defined(WIN32)
       // Win32 resource identifiers can't have spaces
-      for (int j = 0; j < path.size(); ++j) {
+      for (size_t j = 0; j < path.size(); ++j) {
         if (path.at(j) == ' ') {
           path[j] = '_';
         }
