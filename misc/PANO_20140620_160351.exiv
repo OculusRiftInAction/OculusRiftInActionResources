@@ -1,0 +1,35 @@
+Exif.Image.Model                             Ascii       8  Nexus 5
+Exif.Image.Orientation                       Short       1  (0)
+Exif.Image.DateTimeOriginal                  Ascii      20  2014:06:20 16:05:51
+Exif.Image.MeteringMode                      Short       1  (65535)
+Exif.Image.ImageLength                       Short       1  2563
+Exif.Image.DateTime                          Ascii      20  2014:06:20 16:05:51
+Exif.Image.LightSource                       Short       1  Unknown
+Exif.Image.ImageWidth                        Short       1  3119
+Exif.Image.Make                              Ascii       4  LGE
+Exif.Image.GPSTag                            Long        1  226
+Exif.GPSInfo.GPSTimeStamp                    SRational   3  16:04:02
+Exif.GPSInfo.GPSLatitudeRef                  Ascii       2  North
+Exif.GPSInfo.GPSLongitude                    Rational    3  11deg 19' 52.237" 
+Exif.GPSInfo.GPSLongitudeRef                 Ascii       2  East
+Exif.GPSInfo.GPSDateStamp                    Ascii      11  2014:06:20
+Exif.GPSInfo.GPSProcessingMethod             Undefined   1  0
+Exif.GPSInfo.GPSLatitude                     Rational    3  43deg 19' 4.864" 
+Exif.GPSInfo.GPSAltitudeRef                  Byte        1  Above sea level
+Exif.Image.ExifTag                           Long        1  411
+Xmp.GPano.UsePanoramaViewer                  XmpText     4  True
+Xmp.GPano.ProjectionType                     XmpText    15  equirectangular
+Xmp.GPano.CroppedAreaImageHeightPixels       XmpText     4  2563
+Xmp.GPano.CroppedAreaImageWidthPixels        XmpText     4  3119
+Xmp.GPano.FullPanoHeightPixels               XmpText     4  2900
+Xmp.GPano.FullPanoWidthPixels                XmpText     4  5800
+Xmp.GPano.CroppedAreaTopPixels               XmpText     3  334
+Xmp.GPano.CroppedAreaLeftPixels              XmpText     4  1314
+Xmp.GPano.FirstPhotoDate                     XmpText    24  2014-06-20T14:03:56.173Z
+Xmp.GPano.LastPhotoDate                      XmpText    23  2014-06-20T14:05:24.13Z
+Xmp.GPano.SourcePhotosCount                  XmpText     2  25
+Xmp.GPano.PoseHeadingDegrees                 XmpText     5  317.0
+Xmp.GPano.LargestValidInteriorRectLeft       XmpText     1  0
+Xmp.GPano.LargestValidInteriorRectTop        XmpText     1  0
+Xmp.GPano.LargestValidInteriorRectWidth      XmpText     4  3119
+Xmp.GPano.LargestValidInteriorRectHeight     XmpText     4  2563
