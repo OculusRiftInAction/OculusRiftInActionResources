@@ -8,7 +8,6 @@ file(GLOB FONTS fonts/*)
 file(GLOB_RECURSE IMAGES images/*.png images/*.jpg)
 file(GLOB MESHES meshes/*.ctm meshes/*.obj meshes/*.mtl)
 file(GLOB_RECURSE MISC misc/*)
-file(GLOB_RECURSE CEGUI cegui/*)
 file(GLOB_RECURSE SHADERS shaders/*)
 file(GLOB_RECURSE SHADERTOYS shadertoy/*)
 
@@ -27,7 +26,6 @@ set(ALL_RESOURCES
     ${IMAGES}
     ${MESHES}
     ${MISC}
-    ${CEGUI}
     ${SHADERS}
     ${SHADERTOYS}
 )
