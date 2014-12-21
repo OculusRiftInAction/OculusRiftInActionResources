@@ -1,8 +1,9 @@
-// https://www.shadertoy.com/view/4dfGzs
-// @channel0 tex16
-// @channel1 tex07
-// @channel2 tex06
-
+<shadertoy>
+    <url>https://www.shadertoy.com/view/4dfGzs</url>
+    <channel id="0" source="tex16"/>
+    <channel id="1" source="tex07"/>
+    <channel id="2" source="tex06"/>
+    <fragmentSource><![CDATA[
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
@@ -303,3 +304,5 @@ void main( void )
     
     gl_FragColor = vec4( col, 1.0 );
 }
+    ]]></fragmentSource>
+</shadertoy>

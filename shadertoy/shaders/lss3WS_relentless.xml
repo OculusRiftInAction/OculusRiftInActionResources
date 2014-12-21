@@ -1,3 +1,5 @@
+<shadertoy>
+    <fragmentSource><![CDATA[
 // https://www.shadertoy.com/view/lss3WS
 
 // srtuss, 2013
@@ -263,3 +265,5 @@ void main(void) {
   vec3 col = pow(vec3(inten), 1.5 * ct);
   gl_FragColor = vec4(col, 1.0);
 }
+    ]]></fragmentSource>
+</shadertoy>

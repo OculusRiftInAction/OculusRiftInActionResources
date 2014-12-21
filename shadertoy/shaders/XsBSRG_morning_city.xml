@@ -1,5 +1,6 @@
-// https://www.shadertoy.com/view/XsBSRG
-
+<shadertoy>
+    <url>https://www.shadertoy.com/view/XsBSRG</url>
+    <fragmentSource><![CDATA[
 //#define CARS
 #define I_MAX 70
 
@@ -576,3 +577,5 @@ void main(void) {
   gl_FragColor = vec4(color, 1.0);
   ;
 }
+    ]]></fragmentSource>
+</shadertoy>

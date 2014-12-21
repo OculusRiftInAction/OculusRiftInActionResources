@@ -1,4 +1,6 @@
-// https://www.shadertoy.com/view/4sBGD1
+<shadertoy>
+    <url>https://www.shadertoy.com/view/4sBGD1</url>
+    <fragmentSource><![CDATA[
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
@@ -122,3 +124,5 @@ void main( void )
 
     gl_FragColor = vec4( tot, 1.0 );
 }
+    ]]></fragmentSource>
+</shadertoy>

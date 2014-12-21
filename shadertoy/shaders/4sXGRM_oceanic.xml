@@ -1,5 +1,7 @@
-// https://www.shadertoy.com/view/4sXGRM
-// @channel0 tex12
+<shadertoy>
+    <url>https://www.shadertoy.com/view/4sXGRM</url>
+    <channel id="0" source="tex12"/>
+    <fragmentSource><![CDATA[
 // Clouds: slice based volumetric height-clouds with god-rays, density, sun-radiance/shadow
 // and 
 // Water: simple reflecting sky/sun and cloud shaded height-modulated waves
@@ -334,5 +336,5 @@ void main(void)
 
   gl_FragColor=vec4(col,1.0);
 }
-
-
+    ]]></fragmentSource>
+</shadertoy>

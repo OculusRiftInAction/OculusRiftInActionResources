@@ -109,5 +109,6 @@
     <file>shadertoy/textures/tex14.png</file>
     <file>shadertoy/textures/tex15.png</file>
     <file>shadertoy/textures/tex16.png</file>
+    <file>shadertoy/qt/main.qml</file>
 </qresource>
 </RCC>

@@ -1,10 +1,10 @@
-// https://www.shadertoy.com/view/MsXGz4
-
-// @channel0 cube00
-// @channel1 cube01
-// @channel2 tex01
-// @channel3 tex06
-
+<shadertoy>
+    <url>https://www.shadertoy.com/view/MsXGz4</url>
+    <channel id="0" source="cube00"/>
+    <channel id="1" source="cube01"/>
+    <channel id="2" source="tex01"/>
+    <channel id="3" source="tex06"/>
+    <fragmentSource><![CDATA[
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
@@ -146,4 +146,5 @@ void main(void)
     col *= 0.25 + 0.75*pow( 16.0*q.x*q.y*(1.0-q.x)*(1.0-q.y), 0.15 );
 
     gl_FragColor = vec4(col,1.0);
-}
+}    ]]></fragmentSource>
+</shadertoy>

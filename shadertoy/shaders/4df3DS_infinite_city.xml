@@ -1,6 +1,8 @@
+<shadertoy>
+    <channel id="0" source="tex16"/>
+    <channel id="1" source="tex06"/>
+    <fragmentSource><![CDATA[
 // https://www.shadertoy.com/view/4df3DS
-// @channel0 tex16
-// @channel1 tex06
 // Ininite City
 // Ben Weston - 2013
 // License Creative Commons 
@@ -221,3 +223,5 @@ void main(void) {
 
   gl_FragColor = vec4(result, 1);
 }
+    ]]></fragmentSource>
+</shadertoy>

@@ -1,3 +1,5 @@
+<shadertoy>
+    <fragmentSource><![CDATA[
 void main(void)
 {
   vec2 uv = gl_FragCoord.xy / iResolution.xy;
@@ -5,3 +7,5 @@ void main(void)
 //  vec4 color = texture(iChannel0, iDir);
   gl_FragColor = color; 
 }
+    ]]></fragmentSource>
+</shadertoy>

@@ -1,7 +1,9 @@
-// https://www.shadertoy.com/view/MdX3Rr
+<shadertoy>
+    <url>https://www.shadertoy.com/view/MdX3Rr</url>
+    <channel id="0" source="tex16"/>
+    <fragmentSource><![CDATA[
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-// @channel0 tex16
 // value noise, and its analytical derivatives
 vec3 noised( in vec2 x )
 {
@@ -221,3 +223,5 @@ void main(void) {
 
   gl_FragColor = vec4(col, 1.0);
 }
+    ]]></fragmentSource>
+</shadertoy>

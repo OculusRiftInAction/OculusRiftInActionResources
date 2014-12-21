@@ -1,5 +1,7 @@
-// https://www.shadertoy.com/view/MsSGD1
-// @channel0 tex05
+<shadertoy>
+    <url>https://www.shadertoy.com/view/MsSGD1</url>
+    <channel id="0" source="tex05"/>
+    <fragmentSource><![CDATA[
 // Hand-drawn Sketch Effect by HLorenzi!
 
 #define EDGE_WIDTH 0.15
@@ -174,4 +176,5 @@ void main(void)
     vec4 col = getPixel(p, ro, rd, normalize(light));
     gl_FragColor = col;
     
-}
+}    ]]></fragmentSource>
+</shadertoy>
