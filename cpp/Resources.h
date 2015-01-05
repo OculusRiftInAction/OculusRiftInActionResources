@@ -27,7 +27,7 @@ public:
   static Resources_EXPORT time_t getResourceModified(Resource resource);
   static Resources_EXPORT size_t getResourceSize(Resource resource);
   static Resources_EXPORT void getResourceData(Resource resource, void * out);
+  static Resources_EXPORT const Pair RESOURCE_MAP_VALUES[];
 private:
   static const std::string RESOURCE_ROOT;
-  static const Pair RESOURCE_MAP_VALUES[];
 };
