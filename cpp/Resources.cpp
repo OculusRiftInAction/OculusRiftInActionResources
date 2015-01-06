@@ -1,11 +1,11 @@
 #include "Resources.h"
 
-#ifdef WIN32
+#if defined(WIN32)
 #include <Windows.h>
-#endif
-
-#ifdef __APPLE__
+#elif defined(__APPLE__)
 #include <CoreFoundation/CoreFoundation.h>
+#else
+#define FILE_LOADING 1
 #endif
 
 #include <fstream>
@@ -27,10 +27,6 @@
 using namespace boost::posix_time;
 using namespace boost::filesystem;
 #endif
-
-//#if defined(RIFT_DEBUG)
-//#define FILE_LOADING 1
-//#endif
 
 const std::string & Resources::getResourceMnemonic(Resource resource) {
   typedef std::unordered_map<Resource, std::string> Map;
