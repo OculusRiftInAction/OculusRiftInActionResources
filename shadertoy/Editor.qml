@@ -7,7 +7,7 @@ Rectangle {
     id: editRoot
     width: 1280
     height: 720
-    color: "#7f000000"
+    color: "#00000000"
     property alias text: shaderTextEdit.text
 
     function setChannelIcon(channel, path) {
@@ -54,7 +54,6 @@ Rectangle {
                 onClicked: root.channelSelect(0);
             }
         }
-
 
         Image {
             id: channel1
@@ -107,26 +106,25 @@ Rectangle {
         anchors.topMargin: 8
 
         BorderImage {
-           source: "lineedit.sci"
+           source: "tron_white_bg_no_corners.sci"
            anchors.fill: parent
+           TextArea {
+               id: shaderTextEdit
+               objectName: "shaderTextEdit"
+               style: TextAreaStyle {
+                   backgroundColor: "#00000000"
+               }
+               font.family: "Courier"
+               text: qsTr("Text Edit")
+               font.pixelSize: 14
+               anchors.fill: parent
+               anchors.margins: 25
+               focus: true
+               wrapMode: TextEdit.NoWrap
+               frameVisible: false
+          }
         }
 
-        TextArea {
-            id: shaderTextEdit
-            style: TextAreaStyle {
-                backgroundColor: "#afffffff"
-            }
-//            backgroundVisible:
-            objectName: "shaderTextEdit"
-            font.family: "Courier"
-            text: qsTr("Text Edit")
-            font.pixelSize: 14
-            anchors.fill: parent
-            anchors.margins: 10
-            focus: true
-            wrapMode: TextEdit.NoWrap
-            frameVisible: false
-       }
     }
 
 
