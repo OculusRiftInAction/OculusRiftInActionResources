@@ -9,6 +9,7 @@ Rectangle {
     height: 720
     color: "#00000000"
     property alias text: shaderTextEdit.text
+    FontLoader { id: tronFont; source: "fonts/tron.ttf" }
 
     function setChannelIcon(channel, path) {
         var channelItem;
@@ -43,48 +44,72 @@ Rectangle {
         spacing: 8
         anchors.margins: 8
 
-        Image {
-            id: channel0
-            objectName: "channel0"
-            height: 128
-            width: 128
-            source: "image://resources/shadertoy/tex_none.png"
+        BorderImage {
+            source: "tron_black_bg_no_corners.sci"
+            height: 128 + 24
+            width: 128 + 24
+            Image {
+                objectName: "channel0"
+                anchors.centerIn: parent
+                height: 128
+                width: 128
+                source: "image://resources/shadertoy/tex_none.png"
+            }
             MouseArea {
                 anchors.fill: parent
                 onClicked: root.channelSelect(0);
             }
         }
 
-        Image {
-            id: channel1
-            objectName: "channel1"
-            height: 128
-            width: 128
-            source: "image://resources/shadertoy/tex_none.png"
+        BorderImage {
+            source: "tron_black_bg_no_corners.sci"
+            height: 128 + 24
+            width: 128 + 24
+            Image {
+                id: channel1
+                objectName: "channel1"
+                anchors.centerIn: parent
+                height: 128
+                width: 128
+                source: "image://resources/shadertoy/tex_none.png"
+            }
             MouseArea {
                 anchors.fill: parent
                 onClicked: root.channelSelect(1);
             }
         }
 
-        Image {
-            id: channel2
-            objectName: "channel2"
-            height: 128
-            width: 128
-            source: "image://resources/shadertoy/tex_none.png"
+        BorderImage {
+            source: "tron_black_bg_no_corners.sci"
+            height: 128 + 24
+            width: 128 + 24
+            Image {
+                objectName: "channel2"
+                anchors.centerIn: parent
+                height: 128
+                width: 128
+                source: "image://resources/shadertoy/tex_none.png"
+            }
             MouseArea {
                 anchors.fill: parent
                 onClicked: root.channelSelect(2);
             }
         }
 
-        Image {
-            id: channel3
-            objectName: "channel3"
-            height: 128
-            width: 128
-            source: "image://resources/shadertoy/tex_none.png"
+        BorderImage {
+            source: "tron_black_bg_no_corners.sci"
+            height: 128 + 24
+            width: 128 + 24
+            Image {
+                objectName: "channel3"
+                anchors.left: parent.left
+                anchors.leftMargin: 12
+                anchors.top: parent.top
+                anchors.topMargin: 12
+                height: 128
+                width: 128
+                source: "image://resources/shadertoy/tex_none.png"
+            }
             MouseArea {
                 anchors.fill: parent
                 onClicked: root.channelSelect(3);
@@ -92,60 +117,61 @@ Rectangle {
         }
     }
 
-    Rectangle {
+
+    BorderImage {
         id: textFrame
-        color: "#00000000"
-        anchors.bottom: buttonArea.top
-        anchors.bottomMargin: 8
-        anchors.left: channelColumn.right
-        anchors.leftMargin: 8
-        anchors.right: infoColumn.left
-        anchors.rightMargin: 8
+       source: "tron_black_bg_no_corners.sci"
+       anchors.bottom: buttonArea.top
+       anchors.bottomMargin: 8
+       anchors.left: channelColumn.right
+       anchors.leftMargin: 8
+       anchors.right: infoColumn.left
+       anchors.rightMargin: 8
 
-        anchors.top: parent.top
-        anchors.topMargin: 8
-
-        BorderImage {
-           source: "tron_white_bg_no_corners.sci"
+       anchors.top: parent.top
+       anchors.topMargin: 8
+       TextArea {
+           id: shaderTextEdit
+           objectName: "shaderTextEdit"
+           style: TextAreaStyle {
+               backgroundColor: "#00000000"
+               textColor: "white"
+           }
+           font.family: "Lucida Console"
+           text: qsTr("Text Edit")
+           anchors.rightMargin: 12
+           anchors.leftMargin: 12
+           anchors.bottomMargin: 12
+           anchors.topMargin: 12
+           font.pixelSize: 14
            anchors.fill: parent
-           TextArea {
-               id: shaderTextEdit
-               objectName: "shaderTextEdit"
-               style: TextAreaStyle {
-                   backgroundColor: "#00000000"
-               }
-               font.family: "Courier"
-               text: qsTr("Text Edit")
-               font.pixelSize: 14
-               anchors.fill: parent
-               anchors.margins: 25
-               focus: true
-               wrapMode: TextEdit.NoWrap
-               frameVisible: false
-          }
-        }
-
+           anchors.margins: 25
+           focus: true
+           wrapMode: TextEdit.NoWrap
+           frameVisible: false
+      }
     }
 
-
-    Grid {
-        columns: 2
+    BorderImage {
+        source: "tron_black_bg_no_corners.sci"
         id: infoColumn
-        anchors.margins: 8
         width: 196
-        anchors.bottom: buttonArea.top
-        anchors.bottomMargin: 8
+        height: 256
         anchors.top: parent.top
         anchors.topMargin: 8
         anchors.right: parent.right
         anchors.rightMargin: 8
-        spacing: 12
-
-        Text { text: "FPS"; } Text { objectName: "fps"; text: "0" }
-        Text { text: "RES"; } Text { objectName: "res"; text: "0" }
-        Text { text: "EPS"; } Text { objectName: "eps"; text: "0" }
-        Text { text: "MP";  } Text { objectName: "mp"; text: "0" }
-        Text { text: "EPF";  } Text { objectName: "epf"; text: "Off"; }
+        Grid {
+            anchors.fill: parent
+            anchors.margins: 16
+            columns: 2
+            spacing: 12
+            CustomText { text: "FPS"; } CustomText { objectName: "fps"; text: "0" }
+            CustomText { text: "RES"; } CustomText { objectName: "res"; text: "0" }
+            CustomText { text: "EPS"; } CustomText { objectName: "eps"; text: "0" }
+            CustomText { text: "EPF";  } Switch { objectName: "epf"; }
+//            CustomText { text: "MP";  } CustomText { objectName: "mp"; text: "0" }
+        }
     }
 
     Rectangle {
@@ -163,12 +189,12 @@ Rectangle {
             anchors.right: parent.right
             spacing: 8
             layoutDirection: Qt.RightToLeft
-            Button {
+            CustomButton {
                 id: load
                 height: parent.height
                 text: qsTr("Load")
             }
-            Button {
+            CustomButton {
                 id: save
                 height: parent.height
                 text: qsTr("Save")
@@ -179,7 +205,7 @@ Rectangle {
             anchors.left: parent.left
             spacing: 8
 
-            Button {
+            CustomButton {
                 id: run
                 height: parent.height
                 text: qsTr("Run")
