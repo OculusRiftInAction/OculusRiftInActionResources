@@ -23,6 +23,7 @@ Item {
     signal startShutdown()
     signal restartShader()
     signal recenterPose()
+    signal epfModeChanged(bool checked)
 
     Keys.onPressed: {
         console.log("Key pressed: " + event.key);
@@ -141,6 +142,11 @@ Item {
 
     Load {
         id: loader
+        visible: false
+        anchors.fill: parent
+    }
+    Save {
+        id: saver
         visible: false
         anchors.fill: parent
     }

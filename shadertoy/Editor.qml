@@ -9,8 +9,6 @@ Rectangle {
     height: 720
     color: "#00000000"
     property alias text: shaderTextEdit.text
-    FontLoader { id: tronFont; source: "fonts/tron.ttf" }
-
     function setChannelIcon(channel, path) {
         var channelItem;
         switch(channel) {
@@ -28,7 +26,7 @@ Rectangle {
             break;
         }
         if (channelItem) {
-            channelItem.source = "image://resources/" + path;
+            channelItem.source = path;
         }
     }
 
@@ -49,6 +47,7 @@ Rectangle {
             height: 128 + 24
             width: 128 + 24
             Image {
+                id: channel0
                 objectName: "channel0"
                 anchors.centerIn: parent
                 height: 128
@@ -79,11 +78,11 @@ Rectangle {
             }
         }
 
-        BorderImage {
-            source: "tron_black_bg_no_corners.sci"
+        CustomBorder {
             height: 128 + 24
             width: 128 + 24
             Image {
+                id: channel2
                 objectName: "channel2"
                 anchors.centerIn: parent
                 height: 128
@@ -96,11 +95,11 @@ Rectangle {
             }
         }
 
-        BorderImage {
-            source: "tron_black_bg_no_corners.sci"
+        CustomBorder {
             height: 128 + 24
             width: 128 + 24
             Image {
+                id: channel3
                 objectName: "channel3"
                 anchors.left: parent.left
                 anchors.leftMargin: 12
@@ -118,38 +117,37 @@ Rectangle {
     }
 
 
-    BorderImage {
+    CustomBorder {
         id: textFrame
-       source: "tron_black_bg_no_corners.sci"
-       anchors.bottom: buttonArea.top
-       anchors.bottomMargin: 8
-       anchors.left: channelColumn.right
-       anchors.leftMargin: 8
-       anchors.right: infoColumn.left
-       anchors.rightMargin: 8
+        anchors.bottom: buttonArea.top
+        anchors.bottomMargin: 8
+        anchors.left: channelColumn.right
+        anchors.leftMargin: 8
+        anchors.right: infoColumn.left
+        anchors.rightMargin: 8
 
-       anchors.top: parent.top
-       anchors.topMargin: 8
-       TextArea {
-           id: shaderTextEdit
-           objectName: "shaderTextEdit"
-           style: TextAreaStyle {
-               backgroundColor: "#00000000"
-               textColor: "white"
-           }
-           font.family: "Lucida Console"
-           text: qsTr("Text Edit")
-           anchors.rightMargin: 12
-           anchors.leftMargin: 12
-           anchors.bottomMargin: 12
-           anchors.topMargin: 12
-           font.pixelSize: 14
-           anchors.fill: parent
-           anchors.margins: 25
-           focus: true
-           wrapMode: TextEdit.NoWrap
-           frameVisible: false
-      }
+        anchors.top: parent.top
+        anchors.topMargin: 8
+        TextArea {
+            id: shaderTextEdit
+            objectName: "shaderTextEdit"
+            style: TextAreaStyle {
+                backgroundColor: "#00000000"
+                textColor: "white"
+            }
+            font.family: "Lucida Console"
+            text: qsTr("Text Edit")
+            anchors.rightMargin: 12
+            anchors.leftMargin: 12
+            anchors.bottomMargin: 12
+            anchors.topMargin: 12
+            font.pixelSize: 14
+            anchors.fill: parent
+            anchors.margins: 25
+            focus: true
+            wrapMode: TextEdit.NoWrap
+            frameVisible: false
+        }
     }
 
     BorderImage {
@@ -169,8 +167,11 @@ Rectangle {
             CustomText { text: "FPS"; } CustomText { objectName: "fps"; text: "0" }
             CustomText { text: "RES"; } CustomText { objectName: "res"; text: "0" }
             CustomText { text: "EPS"; } CustomText { objectName: "eps"; text: "0" }
-            CustomText { text: "EPF";  } Switch { objectName: "epf"; }
-//            CustomText { text: "MP";  } CustomText { objectName: "mp"; text: "0" }
+            CustomText { text: "EPF";  } Switch {
+                objectName: "epf";
+                onCheckedChanged: root.epfModeChanged(checked);
+            }
+            // CustomText { text: "MP";  } CustomText { objectName: "mp"; text: "0" }
         }
     }
 
@@ -193,11 +194,19 @@ Rectangle {
                 id: load
                 height: parent.height
                 text: qsTr("Load")
+                onClicked: {
+                    editor.visible = false;
+                    loader.visible = true;
+               }
             }
             CustomButton {
                 id: save
                 height: parent.height
                 text: qsTr("Save")
+                onClicked: {
+                    editor.visible = false;
+                    saver.visible = true;
+               }
             }
         }
         Row {

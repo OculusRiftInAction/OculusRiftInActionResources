@@ -5,12 +5,12 @@ Image {
     height: 128
     width: 128
     property string path;
-    property int channelType: 0;
-    source: "image://resources/" + path
+    property int channelType: 0
+    source: "qrc:/shadertoy/" + path
     MouseArea {
         anchors.fill: parent
         onClicked: {
-            root.channelTextureSelected(parent.channelType, parent.path);
+            root.channelTextureSelected(parent.channelType, parent.source);
         }
     }
 }

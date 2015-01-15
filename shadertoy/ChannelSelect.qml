@@ -6,84 +6,113 @@ Item {
     id: channelRoot
     width: 1280
     height: 720
-    Column {
-        visible: true
-        spacing: 8
-        anchors.fill: parent
-        anchors.margins: 8
 
-        Row {
-            Text {
-                text: qsTr("Textures")
-                width: 186
-            }
-
-            Column {
-                spacing: 8
-                Row {
-                    spacing: 8
-                    TextureIcon { path: "shadertoy/textures/tex00.jpg" }
-                    TextureIcon { path: "shadertoy/textures/tex01.jpg" }
-                    TextureIcon { path: "shadertoy/textures/tex02.jpg" }
-                    TextureIcon { path: "shadertoy/textures/tex03.jpg" }
-                    TextureIcon { path: "shadertoy/textures/tex04.jpg" }
-                    TextureIcon { path: "shadertoy/textures/tex05.jpg" }
-                    TextureIcon { path: "shadertoy/textures/tex06.jpg" }
-                    TextureIcon { path: "shadertoy/textures/tex07.jpg" }
-                }
-                Row {
-                    spacing: 8
-                    TextureIcon { path: "shadertoy/textures/tex08.jpg" }
-                    TextureIcon { path: "shadertoy/textures/tex09.jpg" }
-                    TextureIcon { path: "shadertoy/textures/tex10.png" }
-                    TextureIcon { path: "shadertoy/textures/tex11.png" }
-                    TextureIcon { path: "shadertoy/textures/tex12.png" }
-                    TextureIcon { path: "shadertoy/textures/tex14.png" }
-                    TextureIcon { path: "shadertoy/textures/tex15.png" }
-                    TextureIcon { path: "shadertoy/textures/tex16.png" }
-                }
-            }
+    CustomBorder {
+        id: textureGroup
+        width: channelRoot.width
+        height: 384 + 24 + 48
+        anchors.top: parent.top
+        anchors.topMargin: 0
+        CustomText {
+            id: labelTextures
+            text: qsTr("Textures")
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.topMargin: 16
+            anchors.leftMargin: 24
         }
-
-        Rectangle {
-            width: parent.width
-            height: 1
-            color: "#7f7f7f"
-        }
-
-        Row {
-            Text {
-                text: qsTr("Cubemaps")
-                width: 186
+        Column {
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.topMargin: 16
+            spacing: 16
+            anchors.leftMargin: 256
+            Row {
+                spacing: 24
+                TextureIcon { path: "textures/tex00.jpg" }
+                TextureIcon { path: "textures/tex01.jpg" }
+                TextureIcon { path: "textures/tex02.jpg" }
+                TextureIcon { path: "textures/tex03.jpg" }
+                TextureIcon { path: "textures/tex04.jpg" }
+                TextureIcon { path: "textures/tex05.jpg" }
             }
-            Column {
-                spacing: 8
-                Row {
-                    spacing: 8
-                    TextureIcon { channelType: 1; path: "shadertoy/cubemaps/cube00_0.jpg" }
-                    TextureIcon { channelType: 1; path: "shadertoy/cubemaps/cube01_0.png" }
-                    TextureIcon { channelType: 1; path: "shadertoy/cubemaps/cube02_0.jpg" }
-                    TextureIcon { channelType: 1; path: "shadertoy/cubemaps/cube03_0.png" }
-                    TextureIcon { channelType: 1; path: "shadertoy/cubemaps/cube04_0.png" }
-                    TextureIcon { channelType: 1; path: "shadertoy/cubemaps/cube05_0.png" }
-                }
+            Row {
+                spacing: 24
+                TextureIcon { path: "textures/tex06.jpg" }
+                TextureIcon { path: "textures/tex07.jpg" }
+                TextureIcon { path: "textures/tex08.jpg" }
+                TextureIcon { path: "textures/tex09.jpg" }
+                TextureIcon { path: "textures/tex10.png" }
+                TextureIcon { path: "textures/tex11.png" }
+            }
+            Row {
+                spacing: 24
+                TextureIcon { path: "textures/tex12.png" }
+                TextureIcon { path: "textures/tex14.png" }
+                TextureIcon { path: "textures/tex15.png" }
+                TextureIcon { path: "textures/tex16.png" }
             }
         }
     }
 
-    Button {
+    CustomBorder {
+        id: cubemapGroup
+        width: channelRoot.width
+        height: 128 + 48
+        anchors.top: textureGroup.bottom
+        anchors.topMargin: 8
+
+        CustomText {
+            id: labelCubemaps
+            text: qsTr("Cubemaps")
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.topMargin: 24
+            anchors.leftMargin: 24
+        }
+        Row {
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.topMargin: 24
+            spacing: 24
+            anchors.leftMargin: 256
+            TextureIcon { channelType: 1; path: "cubemaps/cube00_0.jpg" }
+            TextureIcon { channelType: 1; path: "cubemaps/cube01_0.png" }
+            TextureIcon { channelType: 1; path: "cubemaps/cube02_0.jpg" }
+            TextureIcon { channelType: 1; path: "cubemaps/cube03_0.png" }
+            TextureIcon { channelType: 1; path: "cubemaps/cube04_0.png" }
+            TextureIcon { channelType: 1; path: "cubemaps/cube05_0.png" }
+        }
+    }
+
+    CustomButton {
+        id: browse
+        width: 256
+        text: qsTr("Browse")
+        anchors.top: cubemapGroup.bottom
+        anchors.topMargin: 8
+        anchors.left: parent.left
+        anchors.leftMargin: 8
+        onClicked: {
+        }
+    }
+
+    CustomButton {
         id: cancel
+        width: 256
         text: qsTr("Cancel")
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 8
+        anchors.top: cubemapGroup.bottom
+        anchors.topMargin: 8
         anchors.right: parent.right
         anchors.rightMargin: 8
         onClicked: {
             channelSelect.visible = false;
             editor.visible = true;
-       }
+        }
     }
+
 }
+
 
 
 

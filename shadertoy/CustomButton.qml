@@ -4,21 +4,17 @@ import QtQuick.Window 2.2
 import QtQuick.Controls.Styles 1.3
 
 Button {
-    text: "Button"
+    text: "Text"
     width: 128
     height: 64
-    FontLoader { id: tronFont; source: "fonts/tron.ttf" }
     style: ButtonStyle {
-        background:  BorderImage {
+        background:  CustomBorder {
             anchors.fill: parent
-           source: "tron_black_bg_no_corners.sci"
         }
-        label: Text {
+        label: CustomText {
            renderType: Text.NativeRendering
            verticalAlignment: Text.AlignVCenter
            horizontalAlignment: Text.AlignHCenter
-           font.family: tronFont.name
-           color: "white"
            text: control.text
         }
     }
