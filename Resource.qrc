@@ -111,5 +111,6 @@
         <file>shadertoy/tron_white_bg_no_corners.png</file>
         <file>shadertoy/tron_white_bg_no_corners.sci</file>
         <file>shadertoy/tron_white_bg_no_corners.xcf</file>
+        <file>shadertoy/Save.qml</file>
     </qresource>
 </RCC>
