@@ -13,12 +13,15 @@ Item {
 
     signal channelTextureChanged(int channel, int type, string url)
     signal shaderSourceChanged(string shaderSource)
+    signal loadPreset(int presetIndex)
+    signal loadShaderXml(string shaderUrl)
     signal loadNextPreset()
     signal loadPreviousPreset()
     signal modifyTextureResolution(double scale)
     signal resetPositionScale()
     signal modifyPositionScale(double scale)
     signal toggleUi()
+    signal reloadUi()
     signal toggleEyePerFrame()
     signal startShutdown()
     signal restartShader()
@@ -36,6 +39,10 @@ Item {
             }
 
         case Qt.Key_Escape:
+            reloadUi();
+            event.accepted = true;
+            break;
+
         case Qt.Key_F1:
             toggleUi();
             event.accepted = true;
@@ -126,6 +133,24 @@ Item {
         channelTextureChanged(activeChannel, type, textureUrl);
         channelSelect.visible = false;
         editor.visible = true;
+    }
+
+    function setUiMode(mode) {
+        editor.visible = false;
+        channelSelect.visible = false;
+        loader.visible = false;
+        saver.visible = false;
+        if (mode == "edit") {
+            editor.visible = true;
+        } else if (mode == "load") {
+            loader.visible = true;
+        } else if (mode == "save") {
+            saver.visible = true;
+        } else if (mode == "channelSelect") {
+            channelSelect.visible = true;
+        } else {
+            editor.visible = true;
+        }
     }
 
     ChannelSelect {
