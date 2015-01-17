@@ -16,6 +16,7 @@ Button {
            verticalAlignment: Text.AlignVCenter
            horizontalAlignment: Text.AlignHCenter
            text: control.text
+           color: control.enabled ? "white" : "dimgray"
         }
     }
 }

@@ -16,15 +16,15 @@ Item {
         CustomText {
             id: labelTextures
             text: qsTr("Textures")
+            anchors.top: texturesColumn.top
+            anchors.topMargin: 0
             anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.topMargin: 16
             anchors.leftMargin: 24
         }
         Column {
+            id: texturesColumn
+            anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.topMargin: 16
             spacing: 16
             anchors.leftMargin: 256
             Row {
@@ -51,6 +51,16 @@ Item {
                 TextureIcon { path: "textures/tex14.png" }
                 TextureIcon { path: "textures/tex15.png" }
                 TextureIcon { path: "textures/tex16.png" }
+                CustomButton {
+                    id: browse
+                    width: 256 + 24
+                    height: parent.height
+                    text: qsTr("Browse")
+                    enabled: false
+                    onClicked: {
+                    }
+                }
+
             }
         }
     }
@@ -66,14 +76,14 @@ Item {
             id: labelCubemaps
             text: qsTr("Cubemaps")
             anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.topMargin: 24
+            anchors.top: cubemapsRow.top
+            anchors.topMargin: 0
             anchors.leftMargin: 24
         }
         Row {
+            id: cubemapsRow
+            anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.topMargin: 24
             spacing: 24
             anchors.leftMargin: 256
             TextureIcon { channelType: 1; path: "cubemaps/cube00_0.jpg" }
@@ -85,17 +95,6 @@ Item {
         }
     }
 
-    CustomButton {
-        id: browse
-        width: 256
-        text: qsTr("Browse")
-        anchors.top: cubemapGroup.bottom
-        anchors.topMargin: 8
-        anchors.left: parent.left
-        anchors.leftMargin: 8
-        onClicked: {
-        }
-    }
 
     CustomButton {
         id: cancel
@@ -106,8 +105,7 @@ Item {
         anchors.right: parent.right
         anchors.rightMargin: 8
         onClicked: {
-            channelSelect.visible = false;
-            editor.visible = true;
+            root.setUiMode("edit");
         }
     }
 

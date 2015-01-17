@@ -13,23 +13,28 @@ Item {
 
     signal channelTextureChanged(int channel, int type, string url)
     signal shaderSourceChanged(string shaderSource)
+
     signal loadPreset(int presetIndex)
-    signal loadShaderXml(string shaderUrl)
     signal loadNextPreset()
     signal loadPreviousPreset()
+
+    signal loadShaderXml(string shaderUrl)
+    signal saveShaderXml(string shaderName)
+
     signal modifyTextureResolution(double scale)
     signal resetPositionScale()
     signal modifyPositionScale(double scale)
+
     signal toggleUi()
-    signal reloadUi()
     signal toggleEyePerFrame()
+
     signal startShutdown()
     signal restartShader()
     signal recenterPose()
+
     signal epfModeChanged(bool checked)
 
     Keys.onPressed: {
-        console.log("Key pressed: " + event.key);
         switch (event.key) {
         case Qt.Key_Q:
             if (Qt.ControlModifier == event.modifiers) {
@@ -39,10 +44,6 @@ Item {
             }
 
         case Qt.Key_Escape:
-            reloadUi();
-            event.accepted = true;
-            break;
-
         case Qt.Key_F1:
             toggleUi();
             event.accepted = true;
@@ -170,6 +171,7 @@ Item {
         visible: false
         anchors.fill: parent
     }
+
     Save {
         id: saver
         visible: false
