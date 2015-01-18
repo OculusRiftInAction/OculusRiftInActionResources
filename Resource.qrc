@@ -116,5 +116,6 @@
         <file>shadertoy/IconControl.qml</file>
         <file>shadertoy/TestFileDialog.qml</file>
         <file>shadertoy/fonts/uifont.ttf</file>
+        <file>shadertoy/fonts/fontawesome-webfont.ttf</file>
     </qresource>
 </RCC>
