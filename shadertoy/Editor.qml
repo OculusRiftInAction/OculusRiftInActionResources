@@ -2,6 +2,7 @@ import QtQuick 2.3
 import QtQuick.Controls 1.2
 import QtQuick.Window 2.2
 import QtQuick.Controls.Styles 1.3
+import Qt.labs.settings 1.0
 
 Rectangle {
     id: editRoot
@@ -40,6 +41,7 @@ Rectangle {
         spacing: 8
 
         CustomBorder {
+            id: channel0control
             height: 128 + 24
             width: 128 + 24
             Image {
@@ -57,6 +59,7 @@ Rectangle {
         }
 
         CustomBorder {
+            id: channel1control
             height: 128 + 24
             width: 128 + 24
             Image {
@@ -74,6 +77,7 @@ Rectangle {
         }
 
         CustomBorder {
+            id: channel2control
             height: 128 + 24
             width: 128 + 24
             Image {
@@ -91,6 +95,7 @@ Rectangle {
         }
 
         CustomBorder {
+            id: channel3control
             height: 128 + 24
             width: 128 + 24
             Image {
@@ -110,7 +115,6 @@ Rectangle {
             }
         }
     }
-
 
     CustomBorder {
         id: textFrame
@@ -133,7 +137,7 @@ Rectangle {
                 textColor: "white"
             }
             font.family: "Lucida Console"
-            font.pixelSize: 14
+            font.pointSize: 14
             text: qsTr("Text Edit")
             anchors.rightMargin: parent.margin
             anchors.leftMargin: parent.margin + lineColumn.width
@@ -143,6 +147,10 @@ Rectangle {
             focus: true
             wrapMode: TextEdit.NoWrap
             frameVisible: false
+            Settings {
+                property alias fontSize: shaderTextEdit.font.pointSize
+            }
+
         }
 
         Rectangle {
@@ -215,11 +223,13 @@ Rectangle {
     CustomBorder {
         id: infoColumn
         width: 196
-        height: 256
         anchors.top: parent.top
         anchors.topMargin: 0
         anchors.right: parent.right
         anchors.rightMargin: 8
+        anchors.bottom: buttonArea.top
+        anchors.bottomMargin: 16
+
         Grid {
             anchors.fill: parent
             anchors.margins: parent.margin * 2
@@ -232,7 +242,16 @@ Rectangle {
                 objectName: "epf";
                 onCheckedChanged: root.epfModeChanged(checked);
             }
-            // CustomText { text: "MP";  } CustomText { objectName: "mp"; text: "0" }
+            CustomText { text: "Font";  } Row {
+                IconControl {
+                    text: "\uF056"
+                    onClicked: shaderTextEdit.font.pointSize -= 1
+                }
+                IconControl {
+                    text: "\uF055"
+                    onClicked: shaderTextEdit.font.pointSize += 1
+                }
+            }
         }
     }
 
@@ -284,8 +303,11 @@ Rectangle {
         }
     }
 
-
-
+    onVisibleChanged: {
+        if (visible) {
+            shaderTextEdit.forceActiveFocus()
+        }
+    }
 }
 
 

@@ -1,6 +1,7 @@
 <shadertoy>
     <url>https://www.shadertoy.com/view/MsSGD1</url>
     <channel id="0" source="tex05"/>
+    <name>Hand-drawn Sketch</name>
     <fragmentSource><![CDATA[
 // Hand-drawn Sketch Effect by HLorenzi!
 

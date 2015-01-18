@@ -1,4 +1,5 @@
 <shadertoy>
+    <name>Crazy Springs</name>
     <fragmentSource><![CDATA[
 // Crazy Springs by eiffie
 // Don't know why there is a seam on the springs.

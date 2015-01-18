@@ -54,15 +54,20 @@ Item {
 
             CustomTextEdit {
                 id: shaderName
+                objectName: "shaderName"
                 verticalAlignment: TextEdit.AlignVCenter
                 horizontalAlignment: TextEdit.AlignHCenter
-                cursorVisible: true
                 anchors.fill: parent
                 anchors.margins: parent.margin
                 onTextChanged: {
                     save.enabled = text;
                 }
             }
+        }
+    }
+    onVisibleChanged: {
+        if (visible) {
+            shaderName.forceActiveFocus()
         }
     }
 }

@@ -1,8 +1,10 @@
 <shadertoy>
     <url>https://www.shadertoy.com/view/4sBGD1</url>
+    <name>Fast Balls</name>
     <fragmentSource><![CDATA[
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+#pragma vr
 
 #define VIS_SAMPLES 25
 

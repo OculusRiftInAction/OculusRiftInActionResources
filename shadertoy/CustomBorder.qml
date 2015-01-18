@@ -10,6 +10,6 @@ Rectangle {
     color: "black"
     border.color: "cyan"
     border.width: 5
-    radius: 10
+    radius: border.width * 2
 }
 

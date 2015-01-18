@@ -1,6 +1,8 @@
 <shadertoy>
     <url>https://www.shadertoy.com/view/XsBSRG</url>
+    <name>Morning City</name>
     <fragmentSource><![CDATA[
+#pragma vr
 //#define CARS
 #define I_MAX 70
 

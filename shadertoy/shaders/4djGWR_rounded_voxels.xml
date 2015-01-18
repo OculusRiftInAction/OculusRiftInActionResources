@@ -1,8 +1,10 @@
 <shadertoy>
     <url>https://www.shadertoy.com/view/4djGWR</url>
+    <name>Rounded Voxels</name>
     <fragmentSource><![CDATA[
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+#pragma vr
 
 // 1, 2, 3 or 4
 #define QUALITY 1

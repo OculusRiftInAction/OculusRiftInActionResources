@@ -112,5 +112,9 @@
         <file>shadertoy/tron_white_bg_no_corners.sci</file>
         <file>shadertoy/tron_white_bg_no_corners.xcf</file>
         <file>shadertoy/Save.qml</file>
+        <file>shadertoy/CustomTextEdit.qml</file>
+        <file>shadertoy/IconControl.qml</file>
+        <file>shadertoy/TestFileDialog.qml</file>
+        <file>shadertoy/fonts/uifont.ttf</file>
     </qresource>
 </RCC>

@@ -1,8 +1,10 @@
 <shadertoy>
     <url>https://www.shadertoy.com/view/4dXGRM</url>
     <channel id="0" source="tex02"/>
+    <name>Flying Steel Cubes</name>
     <fragmentSource><![CDATA[
 #define FOV_MORPH 1
+#pragma vr
 
 float box(vec3 p) {
     return length(max(abs(p)-vec3(.5),0.0)) - 0.15;

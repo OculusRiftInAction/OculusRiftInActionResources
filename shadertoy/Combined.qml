@@ -8,6 +8,7 @@ Item {
     id: root
     width: 1280
     height: 720
+    FontLoader { id: tronFont; source: "fonts/uifont.ttf" }
     property int activeChannel: -1
     property alias text: editor.text
 
@@ -18,12 +19,13 @@ Item {
     signal loadNextPreset()
     signal loadPreviousPreset()
 
-    signal loadShaderXml(string shaderUrl)
+    signal loadShaderFile(string shaderPath)
     signal saveShaderXml(string shaderName)
 
     signal modifyTextureResolution(double scale)
     signal resetPositionScale()
     signal modifyPositionScale(double scale)
+    signal newShaderFilepath(string newPath);
 
     signal toggleUi()
     signal toggleEyePerFrame()
@@ -153,6 +155,25 @@ Item {
             editor.visible = true;
         }
     }
+
+    CustomBorder {
+        z: 1
+        width: 1200
+        height: 128
+        border.color: "red"
+        color: "#222"
+        anchors.top: parent.top
+        anchors.topMargin: 200
+        border.width: 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        visible: false
+        CustomText {
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            anchors.fill: parent
+        }
+    }
+
 
     ChannelSelect {
         id: channelSelect

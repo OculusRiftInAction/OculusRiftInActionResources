@@ -16,12 +16,12 @@ Item {
         Rectangle {
             width: 256 - 24; height: 40
             color: "slategray"; radius: 5
-            Behavior on y {
-                SpringAnimation {
-                    spring: 3
-                    damping: 0.2
-                }
-            }
+//            Behavior on y {
+//                SpringAnimation {
+//                    spring: 3
+//                    damping: 0.2
+//                }
+//            }
         }
     }
 
@@ -74,13 +74,14 @@ Item {
 
         FolderListModel {
             id: userPresetsModel
+            objectName: "userPresetsModel"
             showDotAndDotDot : true
-            nameFilters : ["*.xml"]
-            //folder: Qt.resolvedUrl("/Users/bdavis/AppData/Local/Oculusr Rift in Action/ShadertoyVR/shaders")
+            nameFilters : ["*.xml", "*.json"]
             folder:  userPresetsFolder
         }
 
         ListView {
+            clip: true
             id: userShaders
             anchors.rightMargin: 12
             anchors.leftMargin: 12
@@ -100,14 +101,23 @@ Item {
                         presets.currentIndex = -1;
                     }
                     onDoubleClicked: {
+                        console.log("Current folder: " + userPresetsModel.folder);
                         var filePath = userPresetsModel.get(index, "filePath");
                         if (userPresetsModel.isFolder(index)) {
-                            if (filePath.charAt(1) == ':') {
-                                filePath = filePath.substring(2);
-                            }
-                            userPresetsModel.folder = Qt.resolvedUrl(filePath);
+                            console.log("Current filepath: " + filePath);
+                            root.newShaderFilepath(filePath);
+//                            if (filePath.charAt(1) == ':') {
+//                                filePath = filePath.substring(2);
+//                            }
+//                            if (filePath.charAt(filePath.length - 1) == '/') {
+//                                filePath = filePath.substring(0, filePath.length - 1);
+//                            }
+
+//                            var newFolder = Qt.resolvedUrl("file:///" + filePath);
+//                            console.log("New folder: " + newFolder);
+//                            userPresetsModel.folder = Qt.resolvedUrl(newFolder);
                         } else {
-                            root.loadShaderXml(filePath);
+                            root.loadShaderFile(filePath);
                             root.setUiMode("edit");
                        }
                     }
@@ -135,7 +145,13 @@ Item {
             id: load
             text: qsTr("Load")
             onClicked: {
-                root.loadPreset(presets.currentIndex)
+                if (presets.currentIndex != -1) {
+                    root.loadPreset(presets.currentIndex)
+                } else if (userShaders.currentIndex != -1) {
+                    console.log(userPresetsModel.get(userShaders.currentIndex, "filePath"))
+                    root.loadShaderFile(userPresetsModel.get(userShaders.currentIndex, "filePath"))
+                }
+
                 root.setUiMode("edit");
            }
         }
