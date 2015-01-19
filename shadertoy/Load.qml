@@ -26,7 +26,7 @@ Item {
     }
 
     CustomBorder {
-        width: 512
+        width: 256
         anchors.left: parent.left
         anchors.leftMargin: 0
         anchors.top: parent.top
@@ -64,7 +64,7 @@ Item {
     }
 
     CustomBorder {
-        width: 512
+        width: 256
         anchors.right: parent.right
         anchors.rightMargin: 0
         anchors.top: parent.top
@@ -106,16 +106,7 @@ Item {
                         if (userPresetsModel.isFolder(index)) {
                             console.log("Current filepath: " + filePath);
                             root.newShaderFilepath(filePath);
-//                            if (filePath.charAt(1) == ':') {
-//                                filePath = filePath.substring(2);
-//                            }
-//                            if (filePath.charAt(filePath.length - 1) == '/') {
-//                                filePath = filePath.substring(0, filePath.length - 1);
-//                            }
 
-//                            var newFolder = Qt.resolvedUrl("file:///" + filePath);
-//                            console.log("New folder: " + newFolder);
-//                            userPresetsModel.folder = Qt.resolvedUrl(newFolder);
                         } else {
                             root.loadShaderFile(filePath);
                             root.setUiMode("edit");
@@ -123,6 +114,14 @@ Item {
                     }
                 }
             }
+            onCurrentItemChanged: {
+                var name = userPresetsModel.get(userShaders.currentIndex, "filePath");
+                console.log(name);
+                name = name.replace(/\.(json|xml)$/, ".jpg");
+                console.log(name);
+                image1.source = "file:///" + name;
+            }
+
             model: userPresetsModel
         }
     }
@@ -162,8 +161,18 @@ Item {
             text: qsTr("Cancel")
             onClicked: {
                 root.setUiMode("edit");
-           }
+            }
         }
+    }
+
+    Image {
+        id: image1
+        x: 270
+        y: 19
+        width: 720
+        height: 405
+        anchors.horizontalCenter: parent.horizontalCenter
+        source: "qrc:/qtquickplugin/images/template_image.png"
     }
 
 }
