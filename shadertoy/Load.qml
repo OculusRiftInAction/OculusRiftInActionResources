@@ -7,9 +7,25 @@ import Qt.labs.folderlistmodel 1.0
 
 Item {
     id: loadRoot
+    objectName: "loadRoot"
     width: 1280
     height: 720
     signal channelSelect(var msg)
+    property string activeShaderString;
+    property var activeShader;
+
+    onActiveShaderStringChanged: {
+        if (activeShaderString) {
+            activeShader = JSON.parse(activeShaderString);
+            var shaderInfo = activeShader.Shader[0].info;
+            grid1.visible = true;
+            shaderInfoDescription.text = shaderInfo.description;
+            shaderInfoName.text = shaderInfo.name;
+        } else {
+            grid1.visible = false;
+            activeShader = null
+        }
+    }
 
     Component {
         id: highlight
@@ -26,6 +42,7 @@ Item {
     }
 
     CustomBorder {
+        id: presetsBorder
         width: 256
         anchors.left: parent.left
         anchors.leftMargin: 0
@@ -64,6 +81,7 @@ Item {
     }
 
     CustomBorder {
+        id: userShadersBorder
         width: 256
         anchors.right: parent.right
         anchors.rightMargin: 0
@@ -90,6 +108,7 @@ Item {
             anchors.fill: parent
             highlight: highlight
             highlightFollowsCurrentItem: true
+            highlightMoveDuration: 10
             focus: true
             model: userPresetsModel
             delegate: CustomText {
@@ -166,14 +185,48 @@ Item {
         }
     }
 
-    Image {
-        id: previewImage
-        objectName: "previewImage"
-        x: 270
-        y: 19
-        width: 720
-        height: 405
-        anchors.horizontalCenter: parent.horizontalCenter
+    CustomBorder {
+        id: shaderInfoBorder
+        anchors.bottom: buttonRow.top
+        anchors.bottomMargin: 8
+        anchors.right: userShadersBorder.left
+        anchors.rightMargin: 8
+        anchors.left: presetsBorder.right
+        anchors.leftMargin: 8
+        anchors.top: parent.top
+        anchors.topMargin: 0
+
+        Image {
+            id: previewImage
+            objectName: "previewImage"
+            x: 16
+            width: 720
+            height: 405
+            anchors.top: parent.top
+            anchors.topMargin: 12
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Item {
+            id: grid1
+            anchors.right: parent.right
+            anchors.rightMargin: 12
+            visible: false
+            anchors.top: previewImage.bottom
+            anchors.topMargin: 8
+            anchors.left: parent.left
+            anchors.leftMargin: 12
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 12
+            CustomText { id: label1; width: 192; text: "Name"; anchors.top: parent.top; anchors.topMargin: 0; anchors.left: parent.left; anchors.leftMargin: 0 }
+            CustomText { id:shaderInfoName; text: " " ; anchors.right: parent.right; anchors.rightMargin: 0; anchors.left: label1.right;anchors.leftMargin: 8 }
+            CustomText { id: label2; width: 192; text: "Description"; anchors.left: parent.left; anchors.leftMargin: 0; anchors.top: label1.bottom; anchors.topMargin: 8 }
+            CustomTextArea {
+                clip: true
+                id:shaderInfoDescription;
+                text: " " ; anchors.bottom: parent.bottom; anchors.bottomMargin: 0; anchors.right: parent.right; anchors.rightMargin: 0; anchors.left: label2.right; anchors.leftMargin: 8; anchors.top: label2.top;anchors.topMargin: 0
+            }
+        }
     }
 
 }
