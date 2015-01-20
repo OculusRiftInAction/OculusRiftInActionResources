@@ -91,6 +91,7 @@ Item {
             highlight: highlight
             highlightFollowsCurrentItem: true
             focus: true
+            model: userPresetsModel
             delegate: CustomText {
                 text: fileName
                 MouseArea {
@@ -106,7 +107,6 @@ Item {
                         if (userPresetsModel.isFolder(index)) {
                             console.log("Current filepath: " + filePath);
                             root.newShaderFilepath(filePath);
-
                         } else {
                             root.loadShaderFile(filePath);
                             root.setUiMode("edit");
@@ -114,15 +114,16 @@ Item {
                     }
                 }
             }
+
             onCurrentItemChanged: {
-                var name = userPresetsModel.get(userShaders.currentIndex, "filePath");
-                console.log(name);
-                name = name.replace(/\.(json|xml)$/, ".jpg");
-                console.log(name);
-                image1.source = "file:///" + name;
+                if (userPresetsModel.isFolder(userShaders.currentIndex)) {
+                    previewImage.source = ""
+                } else {
+                    var name = userPresetsModel.get(userShaders.currentIndex, "filePath");
+                    root.newShaderHighlighted(name);
+                }
             }
 
-            model: userPresetsModel
         }
     }
 
@@ -166,13 +167,13 @@ Item {
     }
 
     Image {
-        id: image1
+        id: previewImage
+        objectName: "previewImage"
         x: 270
         y: 19
         width: 720
         height: 405
         anchors.horizontalCenter: parent.horizontalCenter
-        source: "qrc:/qtquickplugin/images/template_image.png"
     }
 
 }

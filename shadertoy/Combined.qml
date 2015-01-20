@@ -26,6 +26,7 @@ Item {
     signal resetPositionScale()
     signal modifyPositionScale(double scale)
     signal newShaderFilepath(string newPath);
+    signal newShaderHighlighted(string newPath);
 
     signal toggleUi()
     signal toggleEyePerFrame()
