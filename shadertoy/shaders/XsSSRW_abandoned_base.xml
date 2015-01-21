@@ -1,7 +1,9 @@
 <shadertoy>
     <url>https://www.shadertoy.com/view/XsSSRW</url>
     <channel id="0" source="tex16"/>
+    <name>Abandoned Base</name>
     <fragmentSource><![CDATA[
+#pragma vr
 // Created by Reinder Nijhoff 2014
 
 // #define GOLD

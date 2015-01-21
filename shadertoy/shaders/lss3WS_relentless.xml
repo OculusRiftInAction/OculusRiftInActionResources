@@ -1,5 +1,7 @@
 <shadertoy>
+    <name>Relentless</name>
     <fragmentSource><![CDATA[
+#pragma vr
 // https://www.shadertoy.com/view/lss3WS
 
 // srtuss, 2013

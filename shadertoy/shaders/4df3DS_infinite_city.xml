@@ -1,14 +1,15 @@
 <shadertoy>
     <channel id="0" source="tex16"/>
     <channel id="1" source="tex06"/>
+    <name>Infinite City</name>
     <fragmentSource><![CDATA[
 // https://www.shadertoy.com/view/4df3DS
 // Ininite City
 // Ben Weston - 2013
 // License Creative Commons 
 // Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-
 // slightly shaky street-level view!
+#pragma vr
 
 vec2 Rand(vec2 pos) {
   return texture2D(iChannel0, (pos + .5) / 256.0, -100.0).xz;

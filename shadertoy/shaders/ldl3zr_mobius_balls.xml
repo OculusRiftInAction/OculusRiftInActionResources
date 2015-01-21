@@ -1,7 +1,9 @@
 <shadertoy>
     <channel id="0" source="tex16"/>
     <channel id="1" source="tex06"/>
+    <name>Mobius Balls</name>
     <fragmentSource><![CDATA[
+#pragma vr
 // https://www.shadertoy.com/view/ldl3zr
 // @channel0 cube04
 // @channel1 tex01

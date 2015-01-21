@@ -4,7 +4,9 @@
     <channel id="1" source="cube01"/>
     <channel id="2" source="tex01"/>
     <channel id="3" source="tex06"/>
+    <name>Snowglobe</name>
     <fragmentSource><![CDATA[
+#pragma vr
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 

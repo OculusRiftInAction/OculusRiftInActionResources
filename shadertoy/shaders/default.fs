@@ -1,3 +1,4 @@
+#pragma vr
 void main(void)
 {
   vec2 uv = gl_FragCoord.xy / iResolution.xy;

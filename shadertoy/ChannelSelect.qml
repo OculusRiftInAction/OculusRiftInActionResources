@@ -3,398 +3,114 @@ import QtQuick.Controls 1.2
 import QtQuick.Window 2.2
 
 Item {
-    id: root
+    id: channelRoot
     width: 1280
     height: 720
-    signal qmlSignal(string msg)
 
-    Column {
-        visible: true
-        spacing: 8
-        anchors.fill: parent
-        anchors.margins: 8
-
-        Row {
-            width: parent.width
-            Text {
-                text: qsTr("Textures")
-                width: 196
-            }
-
-            Column {
-                id: column1
-                width: parent.width
-                spacing: 8
-
-                Row {
-                    width: 1280
-                    spacing: 8
-
-                    Image {
-                        id: tex0
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-
-                    Image {
-                        id: tex1
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex2
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex3
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex4
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-
-                    Image {
-                        id: tex5
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex6
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex7
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-                }
-
-                Row {
-                    id: row1
-                    width: parent.width
-                    anchors.right: parent.right
-                    anchors.rightMargin: 0
-                    spacing: 8
-                    Image {
-                        id: tex8
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex9
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex10
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex11
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex12
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex13
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex14
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: tex15
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-                }
-            }
+    CustomBorder {
+        id: textureGroup
+        width: channelRoot.width
+        height: 384 + 24 + 48
+        anchors.top: parent.top
+        anchors.topMargin: 0
+        CustomText {
+            id: labelTextures
+            text: qsTr("Textures")
+            anchors.top: texturesColumn.top
+            anchors.topMargin: 0
+            anchors.left: parent.left
+            anchors.leftMargin: 24
         }
-
-        Rectangle {
-            width: parent.width
-            height: 1
-            color: "#7f7f7f"
-        }
-
-        Row {
-            Text {
-                text: qsTr("Cubemaps")
-                font.pixelSize: 12
-                width: 72
+        Column {
+            id: texturesColumn
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            spacing: 16
+            anchors.leftMargin: 256
+            Row {
+                spacing: 24
+                TextureIcon { path: "textures/tex00.jpg" }
+                TextureIcon { path: "textures/tex01.jpg" }
+                TextureIcon { path: "textures/tex02.jpg" }
+                TextureIcon { path: "textures/tex03.jpg" }
+                TextureIcon { path: "textures/tex04.jpg" }
+                TextureIcon { path: "textures/tex05.jpg" }
             }
-            Column {
-                width: parent.width
-                spacing: 8
-
-                Row {
-                    width: 1280
-                    spacing: 8
-
-                    Image {
-                        id: cube0
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-
-                    Image {
-                        id: cube1
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube2
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube3
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube4
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-
-                    Image {
-                        id: cube5
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube6
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube7
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
+            Row {
+                spacing: 24
+                TextureIcon { path: "textures/tex06.jpg" }
+                TextureIcon { path: "textures/tex07.jpg" }
+                TextureIcon { path: "textures/tex08.jpg" }
+                TextureIcon { path: "textures/tex09.jpg" }
+                TextureIcon { path: "textures/tex10.png" }
+                TextureIcon { path: "textures/tex11.png" }
+            }
+            Row {
+                spacing: 24
+                TextureIcon { path: "textures/tex12.png" }
+                TextureIcon { path: "textures/tex14.png" }
+                TextureIcon { path: "textures/tex15.png" }
+                TextureIcon { path: "textures/tex16.png" }
+                CustomButton {
+                    id: browse
+                    width: 256 + 24
+                    height: parent.height
+                    text: qsTr("Browse")
+                    enabled: false
+                    onClicked: {
                     }
                 }
 
-                Row {
-                    id: row2
-                    width: parent.width
-                    anchors.right: parent.right
-                    anchors.rightMargin: 0
-                    spacing: 8
-                    Image {
-                        id: cube8
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube9
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube10
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube11
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube12
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube13
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube14
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-
-                    Image {
-                        id: cube15
-                        height: 128
-                        width: 128
-                        source: "image://resources/shadertoy/textures/tex00.jpg"
-                        MouseArea {
-                            anchors.fill: parent
-                        }
-                    }
-                }
             }
         }
     }
+
+    CustomBorder {
+        id: cubemapGroup
+        width: channelRoot.width
+        height: 128 + 48
+        anchors.top: textureGroup.bottom
+        anchors.topMargin: 8
+
+        CustomText {
+            id: labelCubemaps
+            text: qsTr("Cubemaps")
+            anchors.left: parent.left
+            anchors.top: cubemapsRow.top
+            anchors.topMargin: 0
+            anchors.leftMargin: 24
+        }
+        Row {
+            id: cubemapsRow
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            spacing: 24
+            anchors.leftMargin: 256
+            TextureIcon { channelType: 1; path: "cubemaps/cube00_0.jpg" }
+            TextureIcon { channelType: 1; path: "cubemaps/cube01_0.png" }
+            TextureIcon { channelType: 1; path: "cubemaps/cube02_0.jpg" }
+            TextureIcon { channelType: 1; path: "cubemaps/cube03_0.png" }
+            TextureIcon { channelType: 1; path: "cubemaps/cube04_0.png" }
+            TextureIcon { channelType: 1; path: "cubemaps/cube05_0.png" }
+        }
+    }
+
+
+    CustomButton {
+        id: cancel
+        width: 256
+        text: qsTr("Cancel")
+        anchors.top: cubemapGroup.bottom
+        anchors.topMargin: 8
+        anchors.right: parent.right
+        anchors.rightMargin: 8
+        onClicked: {
+            root.setUiMode("edit");
+        }
+    }
+
 }
+
 
 
 

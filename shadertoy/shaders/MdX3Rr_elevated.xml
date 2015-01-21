@@ -1,7 +1,9 @@
 <shadertoy>
     <url>https://www.shadertoy.com/view/MdX3Rr</url>
     <channel id="0" source="tex16"/>
+    <name>Elevated</name>
     <fragmentSource><![CDATA[
+#pragma vr
 // Created by inigo quilez - iq/2013
 // License Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 // value noise, and its analytical derivatives

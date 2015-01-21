@@ -1,6 +1,7 @@
 <shadertoy>
     <url>https://www.shadertoy.com/view/4sXGRM</url>
     <channel id="0" source="tex12"/>
+    <name>Oceanic</name>
     <fragmentSource><![CDATA[
 // Clouds: slice based volumetric height-clouds with god-rays, density, sun-radiance/shadow
 // and 
@@ -14,6 +15,7 @@
 //
 
 // some variables to change :)
+#pragma vr
 
 #define RENDER_GODRAYS    1    // set this to 1 to enable god-rays
 //#define RENDER_GODRAYS    0    // disable god-rays
