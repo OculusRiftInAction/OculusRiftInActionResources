@@ -128,9 +128,3 @@ generate_export_header(
 )
 
 target_link_libraries(ExampleResources ${RESOURCE_LIBRARIES})
-
-
-if (HAVE_QT)
-    set(CMAKE_AUTORCC 1)
-    add_library(ExampleResourcesQt STATIC Resource.qrc)
-endif()
