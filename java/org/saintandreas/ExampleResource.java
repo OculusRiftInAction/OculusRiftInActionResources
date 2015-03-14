@@ -29,6 +29,8 @@ public enum ExampleResource implements Resource {
   
   SHADERS_COLORED_FS("shaders/Colored.fs"), 
   SHADERS_COLORED_VS("shaders/Colored.vs"), 
+  SHADERS_COLORCUBE_FS("shaders/ColorCube.fs"), 
+  SHADERS_COLORCUBE_VS("shaders/ColorCube.vs"), 
   SHADERS_CUBEMAP_FS("shaders/CubeMap.fs"), 
   SHADERS_CUBEMAP_VS("shaders/CubeMap.vs"), 
   SHADERS_INDEXED_VS("shaders/Indexed.vs"), 
