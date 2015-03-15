@@ -27,6 +27,8 @@ public enum ExampleResource implements Resource {
   IMAGES_SKY_CITY_ZPOS_PNG("images/sky/city/zpos.png"),
   IMAGES_FLOOR_PNG("images/floor.png"), 
   
+  SHADERS_COLORCUBE_FS("shaders/ColorCube.fs"), 
+  SHADERS_COLORCUBE_VS("shaders/ColorCube.vs"), 
   SHADERS_COLORED_FS("shaders/Colored.fs"), 
   SHADERS_COLORED_VS("shaders/Colored.vs"), 
   SHADERS_COLORCUBE_FS("shaders/ColorCube.fs"), 
