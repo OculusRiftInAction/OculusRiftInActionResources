@@ -102,8 +102,7 @@ set(SOURCE_FILES
 #################
 # CONFIGURE C/C++
 #################
-set(CMAKE_C_CXX_COMMON_FLAGS "-Wall")
-set(CMAKE_CXX_FLAGS "-u MAIN__ ${CMAKE_C_CXX_COMMON_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++11")
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cpp)
