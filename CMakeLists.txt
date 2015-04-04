@@ -98,6 +98,13 @@ set(SOURCE_FILES
     ${CMAKE_CURRENT_BINARY_DIR}/ResourceEnums.h
 )
 
+#################
+# CONFIGURE C/C++
+#################
+set(CMAKE_C_CXX_COMMON_FLAGS "-Wall -Wno-float-equal -Wno-undef -Wno-strict-aliasing -Wno-unused-function -Wno-unused-but-set-variable -Wno-unused-macros")
+set(CMAKE_C_FLAGS "-u MAIN__ -std=gnu99 -fopenmp ${CMAKE_C_CXX_COMMON_FLAGS}")
+set(CMAKE_CXX_FLAGS "-u MAIN__ ${CMAKE_C_CXX_COMMON_FLAGS} -std=c++11")
+
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cpp)
 
