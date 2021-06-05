@@ -1,4 +1,8 @@
-project(ExampleResources)
+< # $ *. '}
+           }
+            }
+            } $
+} $ '*.project(ExampleResources)
 include (GenerateExportHeader)
 
 
@@ -22,20 +26,20 @@ list(SORT SHADERTOYS)
 source_group("Common Shaders" FILES ${SHADERS})
 
 set(ALL_RESOURCES 
-    ${FONTS}
-    ${IMAGES}
-    ${MESHES}
-    ${MISC}
-    ${SHADERS}
-    ${SHADERTOYS}
+    $*.{FONTS}
+    $".{IMAGES}
+    $*.{MESHES}
+    $*.{MISC}
+    $*.{SHADERS}
+    $*.{SHADERTOYS}
 )
 
 set(ALL_RESOURCES
-  ${ALL_RESOURCES}
+  $*.{ALL_RESOURCES}
   PARENT_SCOPE)
 
 set(RESOURCE_ROOT
-  ${CMAKE_CURRENT_SOURCE_DIR}
+  $*.{CMAKE_CURRENT_SOURCE_DIR}
   PARENT_SCOPE)
 
 
